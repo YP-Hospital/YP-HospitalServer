@@ -15,10 +15,14 @@ public class TCPServer extends Thread {
      * Method to send the messages from server to client
      * @param message the message sent by the server
      */
-    public void sendMessage (String message) throws Exception {
-        if (outputStream != null) {
-            outputStream.writeUTF(message);
-            outputStream.flush();
+    public void sendMessage (String message) {
+        try {
+            if (outputStream != null) {
+                outputStream.writeUTF(message);
+                outputStream.flush();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
