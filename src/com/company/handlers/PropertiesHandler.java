@@ -1,4 +1,4 @@
-package com.company.helpingClasses;
+package com.company.handlers;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,10 +13,11 @@ public class PropertiesHandler {
      * @param propertyFileName name of property file
      */
     public PropertiesHandler(String propertyFileName) {
+        String path = "src/res/";
         FileInputStream fis;
         property = new Properties();
         try {
-            fis = new FileInputStream("src/res/databaseConfig.properties");
+            fis = new FileInputStream(path + propertyFileName);
             property.load(fis);
         } catch (IOException e) {
             System.err.println("ОШИБКА: Файл свойств отсуствует!");

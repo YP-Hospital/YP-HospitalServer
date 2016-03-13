@@ -1,20 +1,27 @@
-package com.company.helpingClasses;
+package com.company;
+
+import com.company.handlers.DatabaseHandler;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TCPServer extends Thread {
 
     public static final int SERVER_PORT = 8080;
     public static final String STOP_WORDS = "This is a stop message";
     private boolean running = false;
+    private DatabaseHandler databaseHandler;
     private DataOutputStream outputStream;
     private DataInputStream inputStream;
     private String message = "";
+    private List<String> convertedDataFromClient;
 
     /**
      * Method to send the messages from server to client
+     *
      * @param message the message sent by the server
      */
     public void sendMessage(String message) {
@@ -32,33 +39,64 @@ public class TCPServer extends Thread {
     public void run() {
         super.run();
         running = true;
-        File dataBase = new File("res/hospital.db");
+        databaseHandler = new DatabaseHandler();
         try {
             System.out.println("S: Connecting...");
             ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
             try {
                 while (running) {
-                    clientRequestHandling(dataBase, serverSocket);
+                    clientRequestHandling(serverSocket);
                 }
             } catch (Exception e) {
-                System.out.println("S: Error");
+                System.out.println("S: Error in request handling");
                 e.printStackTrace();
             }
         } catch (Exception e) {
-            System.out.println("S: Error");
+            System.out.println("S: Error in serverSocket");
             e.printStackTrace();
         }
     }
 
-    private void clientRequestHandling(File dataBase, ServerSocket serverSocket) throws IOException {
+    private void clientRequestHandling(ServerSocket serverSocket) throws IOException {
         Socket client;
         client = getClient(serverSocket);
-        getMessages();
-        updateDataBaseOnClient(dataBase, client);
+        workWithDatabaseHandler();
+        updateDataBaseOnClient(client);
         client.close();
     }
 
-    private void updateDataBaseOnClient(File dataBase, Socket client) throws IOException {
+    private void workWithDatabaseHandler() throws IOException {
+        List<String> messagesFromClient;
+        messagesFromClient = getMessages();
+        String functionToCall = convertMessagesForDatabaseHandler(messagesFromClient);
+        callingNeededFunctionInDatabaseHandler(functionToCall);
+    }
+
+    private void callingNeededFunctionInDatabaseHandler(String functionToCall) {
+        switch (functionToCall) {
+            case "insert":
+                databaseHandler.insert(convertedDataFromClient);
+                break;
+            case "delete":
+                databaseHandler.delete(convertedDataFromClient);
+                break;
+            case "update":
+                databaseHandler.update(convertedDataFromClient);
+                break;
+            default:
+                System.out.println("Data isn't correct");
+                break;
+        }
+    }
+
+    private String convertMessagesForDatabaseHandler(List<String> messagesFromClient) {
+        String methodName = messagesFromClient.get(0);
+        convertedDataFromClient.addAll(1, messagesFromClient);
+        return methodName;
+    }
+
+    private void updateDataBaseOnClient(Socket client) throws IOException {
+        File dataBase = new File(databaseHandler.getDatabasePath());
         byte[] fileInBytes = new byte[(int) dataBase.length()];
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream(dataBase));
         bis.read(fileInBytes, 0, fileInBytes.length);
@@ -69,12 +107,15 @@ public class TCPServer extends Thread {
         bis.close();
     }
 
-    private void getMessages() throws IOException {
+    private List<String> getMessages() throws IOException {
+        List<String> messages = new ArrayList<>();
         while (!message.equals(STOP_WORDS)) {
             message = inputStream.readUTF();
+            messages.add(message);
             System.out.println("Message from client: " + message);
         }
         message = "";
+        return messages;
     }
 
     private Socket getClient(ServerSocket serverSocket) throws IOException {
