@@ -1,4 +1,4 @@
-package com.company;
+package com.company.helpingClasses;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -32,7 +32,7 @@ public class TCPServer extends Thread {
     public void run() {
         super.run();
         running = true;
-        File dataBase = new File("hospital.db");
+        File dataBase = new File("res/hospital.db");
         try {
             System.out.println("S: Connecting...");
             ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
