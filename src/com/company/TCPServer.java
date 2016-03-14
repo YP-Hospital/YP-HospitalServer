@@ -62,8 +62,12 @@ public class TCPServer extends Thread {
         Socket client;
         client = getClient(serverSocket);
         workWithDatabaseHandler();
-        updateDataBaseOnClient(client);
+        sendAnswer();
         client.close();
+    }
+
+    private void sendAnswer() {
+
     }
 
     private void workWithDatabaseHandler() throws IOException {
@@ -100,19 +104,6 @@ public class TCPServer extends Thread {
         convertedDataFromClient.addAll(splitMessageFromClient);
         convertedDataFromClient.remove(0);
         return methodName;
-    }
-
-    private void updateDataBaseOnClient(Socket client) throws IOException {
-        File dataBase = new File(databaseHandler.getDatabasePath());
-        Boolean bo = dataBase.exists();
-        byte[] fileInBytes = new byte[(int) dataBase.length()];
-        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(dataBase));
-        bis.read(fileInBytes, 0, fileInBytes.length);
-        OutputStream os = client.getOutputStream();
-        os.write(fileInBytes, 0, fileInBytes.length);
-        os.flush();
-        os.close();
-        bis.close();
     }
 
     private String getMessage() throws IOException {
