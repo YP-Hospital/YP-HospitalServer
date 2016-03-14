@@ -26,7 +26,7 @@ public class DatabaseHandler {
             while (res.next()) {
                 path = res.getString(1);
             }
-            path += databaseConfig.getPropertyByName("schemaName") + ".db";
+            path += databaseConfig.getPropertyByName("schemaName");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -67,9 +67,9 @@ public class DatabaseHandler {
     }
 
     public String getInsertQueryStatement(List<String> dataFromClient) {
-        String statement = "insert into " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(0) + " values (default,";
+        String statement = "insert into " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(0) + " values (default";
         for (int i = 0; i < dataFromClient.size() - 1; i++) {
-            statement += " ?,";
+            statement += ", ?";
         }
         statement += ")";
         return statement;

@@ -6,6 +6,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TCPServer extends Thread {
@@ -66,10 +67,12 @@ public class TCPServer extends Thread {
     }
 
     private void workWithDatabaseHandler() throws IOException {
-        List<String> messagesFromClient;
-        messagesFromClient = getMessages();
-        String functionToCall = convertMessagesForDatabaseHandler(messagesFromClient);
-        callingNeededFunctionInDatabaseHandler(functionToCall);
+        String messageFromClient;
+        messageFromClient = getMessage();
+        if (!messageFromClient.equals(STOP_WORDS)) {
+            String functionToCall = convertMessagesForDatabaseHandler(messageFromClient);
+            callingNeededFunctionInDatabaseHandler(functionToCall);
+        }
     }
 
     private void callingNeededFunctionInDatabaseHandler(String functionToCall) {
@@ -89,14 +92,19 @@ public class TCPServer extends Thread {
         }
     }
 
-    private String convertMessagesForDatabaseHandler(List<String> messagesFromClient) {
-        String methodName = messagesFromClient.get(0);
-        convertedDataFromClient.addAll(1, messagesFromClient);
+    private String convertMessagesForDatabaseHandler(String messageFromClient) {
+        List<String> splitMessageFromClient = Arrays.asList(messageFromClient.split(" "));
+        splitMessageFromClient.removeIf(s -> s.equals(""));
+        String methodName = splitMessageFromClient.get(0);
+        convertedDataFromClient = new ArrayList<>();
+        convertedDataFromClient.addAll(splitMessageFromClient);
+        convertedDataFromClient.remove(0);
         return methodName;
     }
 
     private void updateDataBaseOnClient(Socket client) throws IOException {
         File dataBase = new File(databaseHandler.getDatabasePath());
+        Boolean bo = dataBase.exists();
         byte[] fileInBytes = new byte[(int) dataBase.length()];
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream(dataBase));
         bis.read(fileInBytes, 0, fileInBytes.length);
@@ -107,7 +115,7 @@ public class TCPServer extends Thread {
         bis.close();
     }
 
-    private List<String> getMessages() throws IOException {
+    private String getMessage() throws IOException {
         List<String> messages = new ArrayList<>();
         while (!message.equals(STOP_WORDS)) {
             message = inputStream.readUTF();
@@ -115,7 +123,7 @@ public class TCPServer extends Thread {
             System.out.println("Message from client: " + message);
         }
         message = "";
-        return messages;
+        return messages.get(0);
     }
 
     private Socket getClient(ServerSocket serverSocket) throws IOException {
