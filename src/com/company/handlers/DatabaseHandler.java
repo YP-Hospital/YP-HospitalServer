@@ -19,18 +19,18 @@ public class DatabaseHandler {
         }
     }
 
-    public String getDatabasePath() {
-        String path = "";
-        try {
-            ResultSet res = connect.createStatement().executeQuery("select @@datadir");
-            while (res.next()) {
-                path = res.getString(1);
-            }
-            path += databaseConfig.getPropertyByName("schemaName");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return path;
+    private void createTable() throws SQLException {
+        String sqlCreate = "CREATE TABLE IF NOT EXISTS users"
+                + "  (id           INTEGER,"
+                + "               INTEGER,"
+                + "   number          INTEGER,"
+                + "   value           INTEGER,"
+                + "   card_count           INTEGER,"
+                + "   player_name     VARCHAR(50),"
+                + "   player_position VARCHAR(20))";
+
+        Statement stmt = connect.createStatement();
+        stmt.execute(sqlCreate);
     }
 
     public void insert(List<String> dataFromClient) {
