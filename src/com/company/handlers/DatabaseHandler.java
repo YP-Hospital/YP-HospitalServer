@@ -19,11 +19,11 @@ public class DatabaseHandler {
         }
     }
 
-    private void createTable() throws SQLException {
+    private void createUsersTable() throws SQLException {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS users"
                 + "  (id           INTEGER,"
-                + "               INTEGER,"
-                + "   number          INTEGER,"
+                + "   name            VARCHAR(50),"
+                + "   login          VARCHAR(225),"
                 + "   value           INTEGER,"
                 + "   card_count           INTEGER,"
                 + "   player_name     VARCHAR(50),"
