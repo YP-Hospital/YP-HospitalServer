@@ -18,6 +18,7 @@ public class TCPServer extends Thread {
     private DataOutputStream outputStream;
     private DataInputStream inputStream;
     private String message = "";
+    String answer = "";
     private List<String> convertedDataFromClient;
 
     /**
@@ -34,6 +35,11 @@ public class TCPServer extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void sendAnswer() {
+        sendMessage(answer);
+        answer = "";
     }
 
     @Override
@@ -66,10 +72,6 @@ public class TCPServer extends Thread {
         client.close();
     }
 
-    private void sendAnswer() {
-
-    }
-
     private void workWithDatabaseHandler() throws IOException {
         String messageFromClient;
         messageFromClient = getMessage();
@@ -82,13 +84,21 @@ public class TCPServer extends Thread {
     private void callingNeededFunctionInDatabaseHandler(String functionToCall) {
         switch (functionToCall) {
             case "insert":
-                databaseHandler.insert(convertedDataFromClient);
+                answer = String.valueOf(databaseHandler.insert(convertedDataFromClient));
                 break;
             case "delete":
-                databaseHandler.delete(convertedDataFromClient);
+                answer = String.valueOf(databaseHandler.delete(convertedDataFromClient));
                 break;
             case "update":
-                databaseHandler.update(convertedDataFromClient);
+                answer = String.valueOf(databaseHandler.update(convertedDataFromClient));
+                break;
+            case "select":
+                String tmp = databaseHandler.select(convertedDataFromClient);
+                if (tmp.isEmpty()) {
+                    answer = "false";
+                } else {
+                    answer += "true " + tmp;
+                }
                 break;
             default:
                 System.out.println("Data isn't correct");
