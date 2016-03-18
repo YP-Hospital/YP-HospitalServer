@@ -99,6 +99,9 @@ public class DatabaseHandler {
         Integer i;
         String statement = "select";
         for (i = 1; i < dataFromClient.size() && !dataFromClient.get(i).equals("where"); i++) {
+            if (i > 1) {
+                statement += ",";
+            }
             statement += " " + dataFromClient.get(i);
         }
         statement += " from " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(0);
@@ -132,10 +135,14 @@ public class DatabaseHandler {
         String result = "";
         try {
             while (resultSet.next()) {
+                if (i == 0) {
+                    for (String field : fieldsNames) {
+                        result += field + " ";
+                    }
+                }
                 result += i++ +". ";
                 if (!fieldsNames.get(0).equals("*")) {
                     for (String field : fieldsNames) {
-                        result += field + " ";
                         result += resultSet.getString(field) + " ";
                     }
                 } else {
