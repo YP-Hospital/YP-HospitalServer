@@ -74,8 +74,10 @@ public class DatabaseHandler {
         try {
             preparedStatement = connect
                     .prepareStatement(statement);
-            for (int i = 1; i < dataFromClient.size(); i++) {
-                preparedStatement.setString(i, dataFromClient.get(i));
+            if (dataFromClient != null) {
+                for (int i = 1; i < dataFromClient.size(); i++) {
+                    preparedStatement.setString(i, dataFromClient.get(i));
+                }
             }
             if (statement.startsWith("select")) {
                 resultSet = preparedStatement.executeQuery();
@@ -105,7 +107,9 @@ public class DatabaseHandler {
             statement += " " + dataFromClient.get(i);
         }
         statement += " from " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(0);
-        statement += " where";
+        if (dataFromClient.contains("where")) {
+            statement += " where";
+        }
         for (int j = i+1; j < dataFromClient.size(); j++) {
             if (!statement.endsWith("where")) {
                 statement += " and";
