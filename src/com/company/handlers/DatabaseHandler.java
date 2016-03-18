@@ -89,7 +89,7 @@ public class DatabaseHandler {
         }
     }
 
-    public String getUpdateQueryStatement(List<String> dataFromClient) {
+    private String getUpdateQueryStatement(List<String> dataFromClient) {
         return  "update " + databaseConfig.getPropertyByName("schemaName") + "."
                         + dataFromClient.get(0) + " set " + dataFromClient.get(1) + " = ? where id = ?";
     }
@@ -116,7 +116,7 @@ public class DatabaseHandler {
         return statement;
     }
 
-    public String getInsertQueryStatement(List<String> dataFromClient) {
+    private String getInsertQueryStatement(List<String> dataFromClient) {
         String statement = "insert into " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(0) + " values (default";
         for (int i = 0; i < dataFromClient.size() - 1; i++) {
             statement += ", ?";
@@ -140,10 +140,10 @@ public class DatabaseHandler {
                         result += field + " ";
                     }
                 }
-                result += i++ +". ";
+                result += i++ +".";
                 if (!fieldsNames.get(0).equals("*")) {
                     for (String field : fieldsNames) {
-                        result += resultSet.getString(field) + " ";
+                        result += " " + resultSet.getString(field);
                     }
                 } else {
                     result += " " + resultSet.getString("login")

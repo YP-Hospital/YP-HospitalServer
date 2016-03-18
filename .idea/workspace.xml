@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e533dc8-599b-4a21-a331-ecdc023f4b44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/description.html" afterPath="$PROJECT_DIR$/.idea/description.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_35_bin.xml" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_35_bin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/project-template.xml" afterPath="$PROJECT_DIR$/.idea/project-template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server.iml" afterPath="$PROJECT_DIR$/Server.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/TCPServer.java" afterPath="$PROJECT_DIR$/src/com/company/TCPServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" afterPath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/handlers/PropertiesHandler.java" afterPath="$PROJECT_DIR$/src/com/company/handlers/PropertiesHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/databaseConfig.properties" afterPath="$PROJECT_DIR$/src/res/databaseConfig.properties" />
     </list>
     <ignored path="Server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,12 +58,12 @@
       <file leaf-file-name="DatabaseHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="104" column="52" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
+            <state relative-caret-position="324">
+              <caret line="145" column="40" selection-start-line="145" selection-start-column="40" selection-end-line="145" selection-end-column="40" />
               <folding>
                 <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-                <marker date="1458326410647" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
+                <marker date="1458338213028" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
               </folding>
             </state>
           </provider>
@@ -163,9 +147,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -267,8 +251,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -737,7 +721,10 @@
       <workItem from="1458317347416" duration="10000" />
       <workItem from="1458318199459" duration="2000" />
       <workItem from="1458318650443" duration="725000" />
-      <workItem from="1458320079282" duration="4124000" />
+      <workItem from="1458320079282" duration="4712000" />
+      <workItem from="1458328626199" duration="15000" />
+      <workItem from="1458331616933" duration="22000" />
+      <workItem from="1458335478999" duration="2101000" />
     </task>
     <task id="LOCAL-00001" summary="version 1.0">
       <created>1457793700759</created>
@@ -788,14 +775,21 @@
       <option name="project" value="LOCAL" />
       <updated>1458257987151</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="version 4.3 (Changes in select)">
+      <created>1458326573208</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1458326573208</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71151000" />
+    <option name="totallyTimeSpent" value="73877000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -846,7 +840,8 @@
     <MESSAGE value="version 4.0" />
     <MESSAGE value="version 4.1 (createTable method, but only skillet)" />
     <MESSAGE value="version 4.2 (Select is ready)" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 4.2 (Select is ready)" />
+    <MESSAGE value="version 4.3 (Changes in select)" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 4.3 (Changes in select)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -908,7 +903,7 @@
           <folding>
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458326410647" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
+            <marker date="1458338213028" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -950,7 +945,7 @@
           <folding>
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458326410647" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
+            <marker date="1458338213028" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -992,7 +987,7 @@
           <folding>
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458326410647" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
+            <marker date="1458338213028" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1034,7 +1029,7 @@
           <folding>
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458326410647" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
+            <marker date="1458338213028" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1076,7 +1071,7 @@
           <folding>
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458326410647" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
+            <marker date="1458338213028" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1118,7 +1113,7 @@
           <folding>
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458326410647" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
+            <marker date="1458338213028" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1152,7 +1147,7 @@
           <folding>
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458326410647" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
+            <marker date="1458338213028" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1186,7 +1181,7 @@
           <folding>
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458326410647" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
+            <marker date="1458338213028" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1312,14 +1307,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/res/databaseConfig.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1331,14 +1318,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1358,13 +1337,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="104" column="52" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
+        <state relative-caret-position="324">
+          <caret line="145" column="40" selection-start-line="145" selection-start-column="40" selection-end-line="145" selection-end-column="40" />
           <folding>
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458326410647" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
+            <marker date="1458338213028" expanded="true" signature="985:1480" placeholder="CREATE TABLE... IF" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/databaseConfig.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
