@@ -27,6 +27,7 @@ public class TCPServer extends Thread {
      * @param message the message sent by the server
      */
     public void sendMessage(String message) {
+        System.out.println("My answer: " + message);
         try {
             if (outputStream != null) {
                 outputStream.writeUTF(message);
@@ -69,12 +70,13 @@ public class TCPServer extends Thread {
         client = getClient(serverSocket);
         workWithDatabaseHandler();
         sendAnswer();
+        sendMessage(STOP_WORDS);
         client.close();
     }
 
     private void workWithDatabaseHandler() throws IOException {
         String messageFromClient;
-        messageFromClient = getMessage();
+        messageFromClient = getMessages();
         if (!messageFromClient.equals(STOP_WORDS)) {
             String functionToCall = convertMessagesForDatabaseHandler(messageFromClient);
             callingNeededFunctionInDatabaseHandler(functionToCall);
@@ -96,9 +98,12 @@ public class TCPServer extends Thread {
                 String tmp = databaseHandler.select(convertedDataFromClient);
                 if (tmp.isEmpty()) {
                     answer = "false";
+                    sendAnswer();
                 } else {
-                    answer += "true " + tmp;
+                    answer = "true";
+                    sendAnswer();
                 }
+                answer = tmp;
                 break;
             default:
                 System.out.println("Data isn't correct");
@@ -116,7 +121,7 @@ public class TCPServer extends Thread {
         return methodName;
     }
 
-    private String getMessage() throws IOException {
+    private String getMessages() throws IOException {
         List<String> messages = new ArrayList<>();
         while (!message.equals(STOP_WORDS)) {
             message = inputStream.readUTF();
