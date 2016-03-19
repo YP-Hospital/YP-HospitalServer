@@ -150,12 +150,14 @@ public class DatabaseHandler {
                         result += " " + resultSet.getString(field);
                     }
                 } else {
-                    result += " " + resultSet.getString("login")
+                    result += " " + resultSet.getString("id")
+                            + " " + resultSet.getString("login")
                             + " " + resultSet.getString("password")
                             + " " + resultSet.getString("name")
                             + " " + resultSet.getString("role")
                             + " " + resultSet.getString("age")
-                            + " " + resultSet.getString("phone");
+                            + " " + resultSet.getString("phone")
+                            + " " + resultSet.getString("doctor_id");
                 }
                 result += " ";
             }
