@@ -31,7 +31,8 @@ public class DatabaseHandler {
                 + "   name         VARCHAR(225) NOT NULL ,"
                 + "   role         VARCHAR(20) NOT NULL,"
                 + "   age          INTEGER,"
-                + "   phone        VARCHAR(50) NOT NULL) CHARACTER SET = utf8 ";
+                + "   phone        VARCHAR(50) NOT NULL,"
+                + "   doctor_id    INT UNSIGNED NOT NULL) CHARACTER SET = utf8 ";
 
         Statement stmt = connect.createStatement();
         stmt.execute(sqlCreate);
