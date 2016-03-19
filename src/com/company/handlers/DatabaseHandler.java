@@ -65,8 +65,10 @@ public class DatabaseHandler {
     }
 
     public Boolean update(List<String> dataFromClient) {
-        String statement = getUpdateQueryStatement(dataFromClient);
-        return workWithPreparedStatement(statement, dataFromClient.subList(1, dataFromClient.size()));
+        int n = dataFromClient.size()/2;
+        List<String> forStatement = dataFromClient.subList(0, n);
+        String statement = getUpdateQueryStatement(forStatement);
+        return workWithPreparedStatement(statement, dataFromClient.subList(n-1, dataFromClient.size()));
     }
 
     @NotNull
@@ -92,8 +94,16 @@ public class DatabaseHandler {
     }
 
     private String getUpdateQueryStatement(List<String> dataFromClient) {
-        return  "update " + databaseConfig.getPropertyByName("schemaName") + "."
-                        + dataFromClient.get(0) + " set " + dataFromClient.get(1) + " = ? where id = ?";
+        String statement =  "update " + databaseConfig.getPropertyByName("schemaName") + "."
+                        + dataFromClient.get(0) + " set ";
+        for (int i = 1; i < dataFromClient.size(); i++) {
+            if (i != 1) {
+                statement += ", ";
+            }
+            statement += dataFromClient.get(i) + " = ?";
+        }
+        statement += " where id = ?";
+        return statement;
     }
 
 
