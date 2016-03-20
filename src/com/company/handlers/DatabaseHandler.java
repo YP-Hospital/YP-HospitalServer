@@ -33,7 +33,8 @@ public class DatabaseHandler {
                 + "   role         VARCHAR(20) NOT NULL,"
                 + "   age          INTEGER,"
                 + "   phone        VARCHAR(50) NOT NULL,"
-                + "   doctor_id    INT UNSIGNED NOT NULL) CHARACTER SET = utf8 ";
+                + "   doctor_id    INT UNSIGNED NOT NULL) "
+                + "   CHARACTER SET = utf8 ";
 
         Statement stmt = connect.createStatement();
         stmt.execute(sqlCreate);
@@ -43,7 +44,8 @@ public class DatabaseHandler {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS disease_histories  "
                 + "  (id           INT UNSIGNED NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
                 + "   text         VARCHAR(1000) NOT NULL,"
-                + "   patient_id   INT UNSIGNED NOT NULL) CHARACTER SET = utf8 ";
+                + "   patient_id   INT UNSIGNED NOT NULL,"
+                 +"   FOREIGN KEY (patient_id) REFERENCES users(id)) CHARACTER SET = utf8 ";
 
         Statement stmt = connect.createStatement();
         stmt.execute(sqlCreate);
