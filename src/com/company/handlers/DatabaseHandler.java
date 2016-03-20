@@ -18,6 +18,7 @@ public class DatabaseHandler {
             databaseConfig = new PropertiesHandler("databaseConfig.properties");
             connect = DriverManager.getConnection(databaseConfig.getPropertyByName("host"), databaseConfig.getProperty());
             createUsersTable();
+            createDiseaseHistoryTable();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -33,6 +34,16 @@ public class DatabaseHandler {
                 + "   age          INTEGER,"
                 + "   phone        VARCHAR(50) NOT NULL,"
                 + "   doctor_id    INT UNSIGNED NOT NULL) CHARACTER SET = utf8 ";
+
+        Statement stmt = connect.createStatement();
+        stmt.execute(sqlCreate);
+    }
+
+    private void createDiseaseHistoryTable() throws SQLException {
+        String sqlCreate = "CREATE TABLE IF NOT EXISTS disease_histories  "
+                + "  (id           INT UNSIGNED NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
+                + "   text         VARCHAR(1000) NOT NULL,"
+                + "   patient_id   INT UNSIGNED NOT NULL) CHARACTER SET = utf8 ";
 
         Statement stmt = connect.createStatement();
         stmt.execute(sqlCreate);
