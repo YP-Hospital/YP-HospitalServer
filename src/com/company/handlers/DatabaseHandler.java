@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHandler {
+    private String separator = "][";
     private Connection connect = null;
     private PreparedStatement preparedStatement = null; // PreparedStatements can use variables and are more efficient
     private ResultSet resultSet = null;
@@ -165,25 +166,25 @@ public class DatabaseHandler {
             while (resultSet.next()) {
                 if (i == 0) {
                     for (String field : fieldsNames) {
-                        result += field + " ";
+                        result += field + separator;
                     }
                 }
                 result += i++ +".";
                 if (!fieldsNames.get(0).equals("*")) {
                     for (String field : fieldsNames) {
-                        result += " " + resultSet.getString(field);
+                        result += separator + resultSet.getString(field);
                     }
                 } else {
-                    result += " " + resultSet.getString("id")
-                            + " " + resultSet.getString("login")
-                            + " " + resultSet.getString("password")
-                            + " " + resultSet.getString("name")
-                            + " " + resultSet.getString("role")
-                            + " " + resultSet.getString("age")
-                            + " " + resultSet.getString("phone")
-                            + " " + resultSet.getString("doctor_id");
+                    result += separator + resultSet.getString("id")
+                            + separator + resultSet.getString("login")
+                            + separator + resultSet.getString("password")
+                            + separator + resultSet.getString("name")
+                            + separator + resultSet.getString("role")
+                            + separator + resultSet.getString("age")
+                            + separator + resultSet.getString("phone")
+                            + separator + resultSet.getString("doctor_id");
                 }
-                result += " ";
+                result += separator;
             }
         } catch (SQLException e) {
             e.printStackTrace();
