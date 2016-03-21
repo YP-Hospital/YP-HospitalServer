@@ -4,12 +4,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DatabaseHandler {
     private int tableNameIndex = 0;
     private int startFieldsNames = 1;
     private String separator = "][";
+    private String separatorForSplit = "]\\[";
     private Connection connect = null;
     private PreparedStatement preparedStatement = null; // PreparedStatements can use variables and are more efficient
     private ResultSet resultSet = null;
@@ -22,6 +24,7 @@ public class DatabaseHandler {
             connect = DriverManager.getConnection(databaseConfig.getPropertyByName("host"), databaseConfig.getProperty());
             createUsersTable();
             createDiseaseHistoryTable();
+            createCertificateTable();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -30,12 +33,12 @@ public class DatabaseHandler {
     private void createUsersTable() throws SQLException {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS users  "
                 + "  (id           INT UNSIGNED NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
-                + "   login        VARCHAR(50) NOT NULL UNIQUE ,"
+                + "   login        VARCHAR(50)  NOT NULL UNIQUE ,"
                 + "   password     VARCHAR(225) NOT NULL ,"
                 + "   name         VARCHAR(225) NOT NULL ,"
-                + "   role         VARCHAR(20) NOT NULL,"
+                + "   role         VARCHAR(20)  NOT NULL,"
                 + "   age          INTEGER,"
-                + "   phone        VARCHAR(50) NOT NULL,"
+                + "   phone        VARCHAR(50)  NOT NULL,"
                 + "   doctor_id    INT UNSIGNED NOT NULL) "
                 + "   CHARACTER SET = utf8 ";
 
@@ -45,16 +48,35 @@ public class DatabaseHandler {
 
     private void createDiseaseHistoryTable() throws SQLException {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS disease_histories  "
-                + "  (id           INT UNSIGNED NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
-                + "   title        VARCHAR(50)  NOT NULL UNIQUE,"
-                + "   open_date    DATE         NOT NULL,"
-                + "   close_date    DATE        NOT NULL,"
-                + "   text         VARCHAR(1000)NOT NULL,"
-                + "   patient_id   INT UNSIGNED NOT NULL,"
+                + "  (id           INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
+                + "   title        VARCHAR(50)   NOT NULL UNIQUE,"
+                + "   open_date    DATE          NOT NULL,"
+                + "   close_date    DATE         NOT NULL,"
+                + "   text         VARCHAR(1000) NOT NULL,"
+                + "   patient_id   INT UNSIGNED  NOT NULL,"
                 + "   FOREIGN KEY (patient_id) REFERENCES users(id)) CHARACTER SET = utf8 ";
 
         Statement stmt = connect.createStatement();
         stmt.execute(sqlCreate);
+    }
+
+    private void createCertificateTable() throws SQLException {
+        String sqlCreate = "CREATE TABLE IF NOT EXISTS certificates  "
+                + "  (id           INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
+                + "   open_key     VARCHAR(225)   NOT NULL UNIQUE,"
+                + "   signature    VARCHAR(225)   NOT NULL UNIQUE,"
+                + "   doctor_id    INT UNSIGNED  NOT NULL,"
+                + "   FOREIGN KEY (doctor_id) REFERENCES users(id)) CHARACTER SET = utf8 ";
+
+        Statement stmt = connect.createStatement();
+        stmt.execute(sqlCreate);
+    }
+
+
+    private void userTriggerAfterInsert(String login) {
+        String newUser = select(new ArrayList<>(Arrays.asList(new String[]{"users", "id", "where", "login", login})));
+        List<String> certificateToInsert = PKIHandler.createKeysToUser(newUser.split(separatorForSplit)[2]);
+        insert(certificateToInsert);
     }
 
     public String select(List<String> dataFromClient) {
@@ -75,8 +97,13 @@ public class DatabaseHandler {
     }
 
     public Boolean insert(List<String> dataFromClient) {
+        int loginIndex = 1;
         String statement = getInsertQueryStatement(dataFromClient);
-        return workWithPreparedStatement(statement, dataFromClient);
+        Boolean isSuccess =  workWithPreparedStatement(statement, dataFromClient);
+        if (dataFromClient.get(tableNameIndex).equals("users")) {
+            userTriggerAfterInsert(dataFromClient.get(loginIndex));
+        }
+        return isSuccess;
     }
 
     public Boolean delete(List<String> dataFromClient) {
@@ -126,7 +153,6 @@ public class DatabaseHandler {
         return statement;
     }
 
-
     private String getSelectQueryStatement(List<String> dataFromClient) {
         Integer i;
         String statement = "select";
@@ -163,7 +189,6 @@ public class DatabaseHandler {
         return  "delete from " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(tableNameIndex) + " where id= ? ; ";
     }
 
-
     private String userResultSetToString(List<String> fieldsNames, String table) {
         Integer i = 0;
         String result = "";
@@ -196,6 +221,11 @@ public class DatabaseHandler {
                                 + separator + resultSet.getString("close_date")
                                 + separator + resultSet.getString("text")
                                 + separator + resultSet.getString("patient_id");
+                    } else if (table.equals("certificates")) {
+                        result += separator + resultSet.getString("id")
+                                + separator + resultSet.getString("open_key")
+                                + separator + resultSet.getString("signature")
+                                + separator + resultSet.getString("doctor_id");
                     }
                 }
                 result += separator;

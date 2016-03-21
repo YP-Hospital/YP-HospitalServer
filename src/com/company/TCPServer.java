@@ -18,8 +18,17 @@ public class TCPServer extends Thread {
     private DataOutputStream outputStream;
     private DataInputStream inputStream;
     private String message = "";
-    String answer = "";
+    private String answer = "";
+    private static  String messageFromAnotherClass = "";
     private List<String> convertedDataFromClient;
+
+    public static String getMessageFromAnotherClass() {
+        return messageFromAnotherClass;
+    }
+
+    public static void setMessageFromAnotherClass(String messageFromAnotherClass) {
+        TCPServer.messageFromAnotherClass = messageFromAnotherClass;
+    }
 
     /**
      * Method to send the messages from server to client
@@ -41,6 +50,13 @@ public class TCPServer extends Thread {
     public void sendAnswer() {
         sendMessage(answer);
         answer = "";
+    }
+
+    private void sendMessageFromAnotherClass() {
+        if (!messageFromAnotherClass.isEmpty()) {
+            sendMessage(messageFromAnotherClass);
+            messageFromAnotherClass = "";
+        }
     }
 
     @Override
@@ -70,6 +86,7 @@ public class TCPServer extends Thread {
         client = getClient(serverSocket);
         workWithDatabaseHandler();
         sendAnswer();
+        sendMessageFromAnotherClass();
         sendMessage(STOP_WORDS);
         client.close();
     }
