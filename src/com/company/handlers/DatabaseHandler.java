@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHandler {
+    private int tableNameIndex = 0;
+    private int startFieldsNames = 1;
     private String separator = "][";
     private Connection connect = null;
     private PreparedStatement preparedStatement = null; // PreparedStatements can use variables and are more efficient
@@ -44,9 +46,12 @@ public class DatabaseHandler {
     private void createDiseaseHistoryTable() throws SQLException {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS disease_histories  "
                 + "  (id           INT UNSIGNED NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
-                + "   text         VARCHAR(1000) NOT NULL,"
+                + "   title        VARCHAR(50)  NOT NULL UNIQUE,"
+                + "   open_date    DATE         NOT NULL,"
+                + "   close_date    DATE        NOT NULL,"
+                + "   text         VARCHAR(1000)NOT NULL,"
                 + "   patient_id   INT UNSIGNED NOT NULL,"
-                 +"   FOREIGN KEY (patient_id) REFERENCES users(id)) CHARACTER SET = utf8 ";
+                + "   FOREIGN KEY (patient_id) REFERENCES users(id)) CHARACTER SET = utf8 ";
 
         Statement stmt = connect.createStatement();
         stmt.execute(sqlCreate);
@@ -56,17 +61,17 @@ public class DatabaseHandler {
         Integer n = dataFromClient.indexOf("where");
         List<String> fieldsNames, values = null, forStatement;
         if (n != -1) {
-            fieldsNames = dataFromClient.subList(1, n);
+            fieldsNames = dataFromClient.subList(startFieldsNames, n);
             Integer valuesNumbers = (dataFromClient.size()-n)/2;
             values = dataFromClient.subList(dataFromClient.size()-valuesNumbers-1, dataFromClient.size());
             forStatement = dataFromClient.subList(0, dataFromClient.size() - valuesNumbers);
         } else {
-            fieldsNames = dataFromClient.subList(1, dataFromClient.size());
+            fieldsNames = dataFromClient.subList(startFieldsNames, dataFromClient.size());
             forStatement = new ArrayList<>(dataFromClient);
         }
         String statement = getSelectQueryStatement(forStatement);
         workWithPreparedStatement(statement, values);
-        return resultSetToString(fieldsNames);
+        return userResultSetToString(fieldsNames, dataFromClient.get(tableNameIndex));
     }
 
     public Boolean insert(List<String> dataFromClient) {
@@ -110,7 +115,7 @@ public class DatabaseHandler {
 
     private String getUpdateQueryStatement(List<String> dataFromClient) {
         String statement =  "update " + databaseConfig.getPropertyByName("schemaName") + "."
-                        + dataFromClient.get(0) + " set ";
+                        + dataFromClient.get(tableNameIndex) + " set ";
         for (int i = 1; i < dataFromClient.size(); i++) {
             if (i != 1) {
                 statement += ", ";
@@ -131,7 +136,7 @@ public class DatabaseHandler {
             }
             statement += " " + dataFromClient.get(i);
         }
-        statement += " from " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(0);
+        statement += " from " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(tableNameIndex);
         if (dataFromClient.contains("where")) {
             statement += " where";
         }
@@ -146,7 +151,7 @@ public class DatabaseHandler {
     }
 
     private String getInsertQueryStatement(List<String> dataFromClient) {
-        String statement = "insert into " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(0) + " values (default";
+        String statement = "insert into " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(tableNameIndex) + " values (default";
         for (int i = 0; i < dataFromClient.size() - 1; i++) {
             statement += ", ?";
         }
@@ -155,11 +160,11 @@ public class DatabaseHandler {
     }
 
     private String getDeleteQueryStatement(List<String> dataFromClient) {
-        return  "delete from " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(0) + " where id= ? ; ";
+        return  "delete from " + databaseConfig.getPropertyByName("schemaName") + "." + dataFromClient.get(tableNameIndex) + " where id= ? ; ";
     }
 
 
-    private String resultSetToString(List<String> fieldsNames) {
+    private String userResultSetToString(List<String> fieldsNames, String table) {
         Integer i = 0;
         String result = "";
         try {
@@ -175,14 +180,23 @@ public class DatabaseHandler {
                         result += separator + resultSet.getString(field);
                     }
                 } else {
-                    result += separator + resultSet.getString("id")
-                            + separator + resultSet.getString("login")
-                            + separator + resultSet.getString("password")
-                            + separator + resultSet.getString("name")
-                            + separator + resultSet.getString("role")
-                            + separator + resultSet.getString("age")
-                            + separator + resultSet.getString("phone")
-                            + separator + resultSet.getString("doctor_id");
+                    if (table.equals("users")) {
+                        result += separator + resultSet.getString("id")
+                                + separator + resultSet.getString("login")
+                                + separator + resultSet.getString("password")
+                                + separator + resultSet.getString("name")
+                                + separator + resultSet.getString("role")
+                                + separator + resultSet.getString("age")
+                                + separator + resultSet.getString("phone")
+                                + separator + resultSet.getString("doctor_id");
+                    } else if (table.equals("disease_histories")) {
+                        result += separator + resultSet.getString("id")
+                                + separator + resultSet.getString("title")
+                                + separator + resultSet.getString("open_date")
+                                + separator + resultSet.getString("close_date")
+                                + separator + resultSet.getString("text")
+                                + separator + resultSet.getString("patient_id");
+                    }
                 }
                 result += separator;
             }
