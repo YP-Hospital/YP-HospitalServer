@@ -124,9 +124,6 @@ public class TCPServer extends Thread {
                 }
                 answer = tmp;
                 break;
-            case "check":
-                answer = PKIHandler.checkPrivateKey(convertedDataFromClient.get(0));
-                break;
             default:
                 System.out.println("Data isn't correct");
                 break;

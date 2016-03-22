@@ -14,7 +14,6 @@ public class PKIHandler {
     private static final String PKI_ALGORITHM = "EC";
     private final static String HASH_ALGORITHM = "SHA1";
     private final static String SIGNATURE_ALGORITHM = HASH_ALGORITHM + "with" + PKI_ALGORITHM + "DSA";
-    private static final String PHRASE = "Signature";
     private PrivateKey privateKey;
     private PublicKey publicKey;
 
@@ -144,37 +143,28 @@ public class PKIHandler {
     public static List<String> createKeysToUser(String id) {
         PKIHandler pki = new PKIHandler();
         pki.generateKeys();
-        String signature = pki.sign(PHRASE);
-        System.out.println("Signature: " + signature);
+//        String signature = pki.sign(PHRASE);
+//        System.out.println("Signature: " + signature);
         TCPServer.setMessageFromAnotherClass(getString(pki.privateKey.getEncoded()));
-        return getCertificateToInsert(id, pki, signature);
+        return getCertificateToInsert(id, pki);
     }
 
-    public static String checkPrivateKey(String privateKey) {
+    public static String checkPrivateKey(String privateKey, String text) {
         PKIHandler pki = new PKIHandler();
         pki.privateKey = getPrivateKey(privateKey);
         if (pki.privateKey == null) {
             return "false";
         } else {
-            DatabaseHandler databaseHandler = new DatabaseHandler();
-            String certificates = databaseHandler.select(Arrays.asList(new String []{"certificates", "open_key", "signature"}));
-            List<String> words = new ArrayList<>(Arrays.asList(certificates.split("]\\[")));
-            for (int i = 2; i < words.size(); i++) {
-                pki.publicKey = getPublicKey(words.get(i++));
-                if (pki.verifySignature(PHRASE, words.get(i++))) {
-                    return words.get(i-1);
-                }
-            }
+            String signature = pki.sign(text);
+            return signature;
         }
-        return "false";
     }
 
     @NotNull
-    private static List<String> getCertificateToInsert(String id, PKIHandler pki, String signature) {
+    private static List<String> getCertificateToInsert(String id, PKIHandler pki) {
         List<String> certificateToInsert = new ArrayList<>();
         certificateToInsert.add("certificates");
         certificateToInsert.add(getString(pki.publicKey.getEncoded()));
-        certificateToInsert.add(signature);
         certificateToInsert.add(id);
         return certificateToInsert;
     }

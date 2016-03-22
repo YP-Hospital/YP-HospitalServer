@@ -64,7 +64,6 @@ public class DatabaseHandler {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS certificates  "
                 + "  (id           INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
                 + "   open_key     VARCHAR(225)   NOT NULL UNIQUE,"
-                + "   signature    VARCHAR(225)   NOT NULL UNIQUE,"
                 + "   doctor_id    INT UNSIGNED  NOT NULL,"
                 + "   FOREIGN KEY (doctor_id) REFERENCES users(id)) CHARACTER SET = utf8 ";
 
@@ -79,6 +78,11 @@ public class DatabaseHandler {
             List<String> certificateToInsert = PKIHandler.createKeysToUser(newUser.split(separatorForSplit)[3]);
             insert(certificateToInsert);
         }
+    }
+
+
+    private String updateCertificatesTrigger(List<String> value) {
+        return PKIHandler.checkPrivateKey(value.get(value.size()), value.get(value.size()-5));
     }
 
     public String select(List<String> dataFromClient) {
@@ -116,8 +120,16 @@ public class DatabaseHandler {
     public Boolean update(List<String> dataFromClient) {
         int n = dataFromClient.size()/2;
         List<String> forStatement = dataFromClient.subList(0, n);
+        List<String> value = dataFromClient.subList(n-1, dataFromClient.size());
         String statement = getUpdateQueryStatement(forStatement);
-        return workWithPreparedStatement(statement, dataFromClient.subList(n-1, dataFromClient.size()));
+        if (forStatement.get(0).equals("certificates")) {
+            String signature = updateCertificatesTrigger(value);
+            if (signature.equals("false")) {
+                return false;
+            }
+            value.add(value.size() - 1, signature);
+        }
+        return workWithPreparedStatement(statement, value.subList(0, value.size()-1));
     }
 
     @NotNull
