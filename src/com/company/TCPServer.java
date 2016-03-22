@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.handlers.DatabaseHandler;
+import com.company.handlers.PKIHandler;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -11,6 +12,7 @@ import java.util.List;
 
 public class TCPServer extends Thread {
 
+    public static final String separator = "]\\[";
     public static final int SERVER_PORT = 8080;
     public static final String STOP_WORDS = "This is a stop message";
     private boolean running = false;
@@ -122,6 +124,9 @@ public class TCPServer extends Thread {
                 }
                 answer = tmp;
                 break;
+            case "check":
+                answer = PKIHandler.checkPrivateKey(convertedDataFromClient.get(0));
+                break;
             default:
                 System.out.println("Data isn't correct");
                 break;
@@ -129,7 +134,7 @@ public class TCPServer extends Thread {
     }
 
     private String convertMessagesForDatabaseHandler(String messageFromClient) {
-        List<String> splitMessageFromClient = Arrays.asList(messageFromClient.split(" "));
+        List<String> splitMessageFromClient = Arrays.asList(messageFromClient.split(separator));
         splitMessageFromClient.removeIf(s -> s.equals(""));
         String methodName = splitMessageFromClient.get(0);
         convertedDataFromClient = new ArrayList<>();

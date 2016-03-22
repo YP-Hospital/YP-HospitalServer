@@ -4,6 +4,9 @@ import com.company.TCPServer;
 import org.jetbrains.annotations.NotNull;
 
 import java.security.*;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.*;
 import java.io.*;
 
@@ -15,7 +18,7 @@ public class PKIHandler {
     private PrivateKey privateKey;
     private PublicKey publicKey;
 
-    public void generateKeys() {
+    private void generateKeys() {
         try {
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance(PKI_ALGORITHM);
             keyGen.initialize(112);
@@ -31,7 +34,37 @@ public class PKIHandler {
         }
     }
 
-    public String sign(String plaintext) {
+    private static PrivateKey getPrivateKey(String privateKey) {
+        PrivateKey key = null;
+        try {
+            byte[] publicBytes = getBytes(privateKey);
+            PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(publicBytes);
+            KeyFactory keyFactory = KeyFactory.getInstance(PKI_ALGORITHM);
+            key = keyFactory.generatePrivate(keySpec);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
+        return key;
+    }
+
+    private static PublicKey getPublicKey(String publicKey) {
+        PublicKey key = null;
+        try {
+            byte[] publicBytes = getBytes(publicKey);
+            X509EncodedKeySpec keySpec = new X509EncodedKeySpec(publicBytes);
+            KeyFactory keyFactory = KeyFactory.getInstance(PKI_ALGORITHM);
+            key = keyFactory.generatePublic(keySpec);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
+        return key;
+    }
+
+    private String sign(String plaintext) {
         try {
             Signature dsa = Signature.getInstance(SIGNATURE_ALGORITHM);
             dsa.initSign(privateKey);
@@ -115,6 +148,25 @@ public class PKIHandler {
         System.out.println("Signature: " + signature);
         TCPServer.setMessageFromAnotherClass(getString(pki.privateKey.getEncoded()));
         return getCertificateToInsert(id, pki, signature);
+    }
+
+    public static String checkPrivateKey(String privateKey) {
+        PKIHandler pki = new PKIHandler();
+        pki.privateKey = getPrivateKey(privateKey);
+        if (pki.privateKey == null) {
+            return "false";
+        } else {
+            DatabaseHandler databaseHandler = new DatabaseHandler();
+            String certificates = databaseHandler.select(Arrays.asList(new String []{"certificates", "open_key", "signature"}));
+            List<String> words = new ArrayList<>(Arrays.asList(certificates.split("]\\[")));
+            for (int i = 2; i < words.size(); i++) {
+                pki.publicKey = getPublicKey(words.get(i++));
+                if (pki.verifySignature(PHRASE, words.get(i++))) {
+                    return words.get(i-1);
+                }
+            }
+        }
+        return "false";
     }
 
     @NotNull

@@ -74,9 +74,11 @@ public class DatabaseHandler {
 
 
     private void userTriggerAfterInsert(String login) {
-        String newUser = select(new ArrayList<>(Arrays.asList(new String[]{"users", "id", "where", "login", login})));
-        List<String> certificateToInsert = PKIHandler.createKeysToUser(newUser.split(separatorForSplit)[2]);
-        insert(certificateToInsert);
+        String newUser = select(new ArrayList<>(Arrays.asList(new String[]{"users", "id", "role", "where", "login", login})));
+        if (newUser.split(separatorForSplit)[4].equals("Doctor")) {
+            List<String> certificateToInsert = PKIHandler.createKeysToUser(newUser.split(separatorForSplit)[3]);
+            insert(certificateToInsert);
+        }
     }
 
     public String select(List<String> dataFromClient) {
