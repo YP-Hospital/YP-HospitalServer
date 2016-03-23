@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e533dc8-599b-4a21-a331-ecdc023f4b44" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/TCPServer.java" afterPath="$PROJECT_DIR$/src/com/company/TCPServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" afterPath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java" afterPath="$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java" />
     </list>
     <ignored path="Server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,8 +42,8 @@
       <file leaf-file-name="TCPServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="125" column="22" selection-start-line="125" selection-start-column="22" selection-end-line="125" selection-end-column="22" />
+            <state relative-caret-position="1836">
+              <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
               <folding>
                 <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
                 <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
@@ -57,7 +55,7 @@
       <file leaf-file-name="PKIHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
+            <state relative-caret-position="2700">
               <caret line="158" column="29" selection-start-line="158" selection-start-column="29" selection-end-line="158" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -69,23 +67,21 @@
       <file leaf-file-name="DatabaseHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="129" column="51" selection-start-line="129" selection-start-column="51" selection-end-line="129" selection-end-column="51" />
+            <state relative-caret-position="917">
+              <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
               <folding>
                 <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-                <marker date="1458643489038" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
-                <marker date="1458643489038" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
-                <marker date="1458643489038" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
-                <marker date="1458643489038" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
-                <marker date="1458643489038" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
-                <marker date="1458643489038" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
-                <marker date="1458643489038" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
+                <marker date="1458646690114" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
+                <marker date="1458646690114" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
+                <marker date="1458646690114" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
+                <marker date="1458646690114" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
+                <marker date="1458646690114" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
+                <marker date="1458646690114" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
+                <marker date="1458646690114" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
               </folding>
             </state>
           </provider>
@@ -187,9 +183,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -391,8 +387,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -467,6 +461,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -978,7 +974,8 @@
       <workItem from="1458563081755" duration="10586000" />
       <workItem from="1458590382964" duration="8923000" />
       <workItem from="1458631287161" duration="5572000" />
-      <workItem from="1458641315185" duration="2301000" />
+      <workItem from="1458641315185" duration="6617000" />
+      <workItem from="1458727525302" duration="30000" />
     </task>
     <task id="LOCAL-00001" summary="version 1.0">
       <created>1457793700759</created>
@@ -1120,15 +1117,22 @@
       <option name="project" value="LOCAL" />
       <updated>1458636862065</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Certificates done? v2">
+      <created>1458643628504</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1458643628504</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121603000" />
+    <option name="totallyTimeSpent" value="125949000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1140,7 +1144,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22111663" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22111663" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1190,21 +1194,32 @@
     <MESSAGE value="version 5 (diseaseHistory added)" />
     <MESSAGE value="Almost done crypto" />
     <MESSAGE value="Certificates done?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Certificates done?" />
+    <MESSAGE value="Certificates done? v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Certificates done? v2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
-          <line>157</line>
+          <line>172</line>
           <properties />
-          <option name="timeStamp" value="40" />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
+          <line>147</line>
+          <properties />
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="46" />
+      <option name="time" value="54" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="resultSet" language="JAVA" custom="" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1244,19 +1259,17 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458643489038" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1294,19 +1307,17 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458643489038" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1344,19 +1355,17 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458643489038" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1394,19 +1403,17 @@
           <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
           <folding>
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458643489038" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1444,19 +1451,17 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458643489038" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1486,19 +1491,17 @@
           <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
           <folding>
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458643489038" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1528,19 +1531,17 @@
           <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
           <folding>
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458643489038" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1681,7 +1682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1332">
           <caret line="211" column="35" selection-start-line="211" selection-start-column="35" selection-end-line="211" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1689,14 +1689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1709,20 +1701,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="125" column="22" selection-start-line="125" selection-start-column="22" selection-end-line="125" selection-end-column="22" />
-          <folding>
-            <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
+        <state relative-caret-position="2700">
           <caret line="158" column="29" selection-start-line="158" selection-start-column="29" selection-end-line="158" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1730,25 +1711,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="129" column="51" selection-start-line="129" selection-start-column="51" selection-end-line="129" selection-end-column="51" />
+        <state relative-caret-position="917">
+          <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
           <folding>
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458643489038" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1458643489038" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1782" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="1247:1828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2406" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2466" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2516" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="false" signature="2020:2558" placeholder="CREATE TABLE... IF" />
+            <marker date="1458646690114" expanded="true" signature="2747:3100" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>

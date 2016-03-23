@@ -118,6 +118,7 @@ public class DatabaseHandler {
     }
 
     public Boolean update(List<String> dataFromClient) {
+        int k = 0;
         int n = dataFromClient.size()/2;
         List<String> forStatement = dataFromClient.subList(0, n);
         List<String> value = dataFromClient.subList(n-1, dataFromClient.size());
@@ -128,8 +129,9 @@ public class DatabaseHandler {
                 return false;
             }
             value.add(value.size() - 1, signature);
+            k = 1;
         }
-        return workWithPreparedStatement(statement, value.subList(0, value.size()-1));
+        return workWithPreparedStatement(statement, value.subList(0, value.size()-k));
     }
 
     @NotNull
@@ -247,6 +249,7 @@ public class DatabaseHandler {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        resultSet = null;
         return result;
     }
 
