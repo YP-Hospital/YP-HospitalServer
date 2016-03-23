@@ -48,12 +48,14 @@ public class DatabaseHandler {
 
     private void createDiseaseHistoryTable() throws SQLException {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS disease_histories  "
-                + "  (id           INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
-                + "   title        VARCHAR(50)   NOT NULL UNIQUE,"
-                + "   open_date    DATE          NOT NULL,"
-                + "   close_date    DATE         NOT NULL,"
-                + "   text         VARCHAR(1000) NOT NULL,"
-                + "   patient_id   INT UNSIGNED  NOT NULL,"
+                + "  (id                          INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
+                + "   title                       VARCHAR(50)   NOT NULL UNIQUE,"
+                + "   open_date                   DATE          NOT NULL,"
+                + "   close_date                  DATE          NOT NULL,"
+                + "   text                        VARCHAR(1000) NOT NULL,"
+                + "   patient_id                  INT UNSIGNED  NOT NULL,"
+                + "   last_modified_by            VARCHAR(1000) NOT NULL,"
+                + "   signature_of_last_modified  VARCHAR(1000) NOT NULL,"
                 + "   FOREIGN KEY (patient_id) REFERENCES users(id)) CHARACTER SET = utf8 ";
 
         Statement stmt = connect.createStatement();
@@ -63,7 +65,7 @@ public class DatabaseHandler {
     private void createCertificateTable() throws SQLException {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS certificates  "
                 + "  (id           INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
-                + "   open_key     VARCHAR(225)   NOT NULL UNIQUE,"
+                + "   open_key     VARCHAR(225)  NOT NULL UNIQUE,"
                 + "   doctor_id    INT UNSIGNED  NOT NULL,"
                 + "   FOREIGN KEY (doctor_id) REFERENCES users(id)) CHARACTER SET = utf8 ";
 
@@ -236,7 +238,9 @@ public class DatabaseHandler {
                                 + separator + resultSet.getString("open_date")
                                 + separator + resultSet.getString("close_date")
                                 + separator + resultSet.getString("text")
-                                + separator + resultSet.getString("patient_id");
+                                + separator + resultSet.getString("patient_id")
+                                + separator + resultSet.getString("last_modified_by")
+                                + separator + resultSet.getString("signature_of_last_modified");
                     } else if (table.equals("certificates")) {
                         result += separator + resultSet.getString("id")
                                 + separator + resultSet.getString("open_key")
