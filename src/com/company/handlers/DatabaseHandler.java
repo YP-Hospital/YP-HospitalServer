@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DatabaseHandler {
+    private static int k = 0;
     private int tableNameIndex = 0;
     private int startFieldsNames = 1;
     private String separator = "][";
@@ -106,8 +107,11 @@ public class DatabaseHandler {
 
     public Boolean insert(List<String> dataFromClient) {
         int loginIndex = 1;
+        if (callDiseaseTriggerIfNeed(dataFromClient, dataFromClient)) {
+            return false;
+        }
         String statement = getInsertQueryStatement(dataFromClient);
-        Boolean isSuccess =  workWithPreparedStatement(statement, dataFromClient);
+        Boolean isSuccess =  workWithPreparedStatement(statement, dataFromClient.subList(0, dataFromClient.size()-k));
         if (dataFromClient.get(tableNameIndex).equals("users")) {
             userTriggerAfterInsert(dataFromClient.get(loginIndex));
         }
@@ -123,22 +127,30 @@ public class DatabaseHandler {
         int k = 0;
         int n = dataFromClient.size()/2;
         List<String> forStatement = dataFromClient.subList(0, n);
-        List<String> value = dataFromClient.subList(n-1, dataFromClient.size());
+        List<String> values = dataFromClient.subList(n-1, dataFromClient.size());
         String statement = getUpdateQueryStatement(forStatement);
-        if (forStatement.get(0).equals("certificates")) {
-            String signature = updateCertificatesTrigger(value);
+        if (callDiseaseTriggerIfNeed(forStatement, values)) {
+            return false;
+        }
+        return workWithPreparedStatement(statement, values.subList(0, values.size()-k));
+    }
+
+    private boolean callDiseaseTriggerIfNeed(List<String> forStatement, List<String> values) {
+        if (forStatement.get(0).equals("disease_histories")) {
+            String signature = updateCertificatesTrigger(values);
             if (signature.equals("false")) {
-                return false;
+                return true;
             }
-            value.add(value.size() - 1, signature);
+            values.add(values.size() - 1, signature);
             k = 1;
         }
-        return workWithPreparedStatement(statement, value.subList(0, value.size()-k));
+        return false;
     }
 
     @NotNull
     private Boolean workWithPreparedStatement(String statement, List<String> dataFromClient) {
         try {
+            k = 0;
             preparedStatement = connect
                     .prepareStatement(statement);
             if (dataFromClient != null) {
