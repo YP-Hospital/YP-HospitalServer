@@ -85,7 +85,12 @@ public class DatabaseHandler {
 
 
     private String updateCertificatesTrigger(List<String> value) {
-        return PKIHandler.checkPrivateKey(value.get(value.size()), value.get(value.size()-5));
+        Integer n = 5;
+        String mainData = "";
+        for (int i = 1; i < n; i++) {
+            mainData += value.get(i) + " ";
+        }
+        return PKIHandler.checkPrivateKey(value.get(value.size() - 1), mainData);
     }
 
     public String select(List<String> dataFromClient) {
@@ -110,8 +115,9 @@ public class DatabaseHandler {
         if (callDiseaseTriggerIfNeed(dataFromClient, dataFromClient)) {
             return false;
         }
+        dataFromClient.remove(dataFromClient.size() - 1);
         String statement = getInsertQueryStatement(dataFromClient);
-        Boolean isSuccess =  workWithPreparedStatement(statement, dataFromClient.subList(0, dataFromClient.size()-k));
+        Boolean isSuccess =  workWithPreparedStatement(statement, dataFromClient);
         if (dataFromClient.get(tableNameIndex).equals("users")) {
             userTriggerAfterInsert(dataFromClient.get(loginIndex));
         }
