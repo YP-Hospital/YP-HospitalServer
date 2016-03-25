@@ -134,13 +134,16 @@ public class DatabaseHandler {
     public Boolean update(List<String> dataFromClient) {
         int k = 0;
         int n = dataFromClient.size()/2;
-        List<String> forStatement = dataFromClient.subList(0, n);
-        List<String> values = dataFromClient.subList(n-1, dataFromClient.size());
+        List<String> forStatement = new ArrayList<>(dataFromClient.subList(0, n));
+        List<String> values = new ArrayList<>(dataFromClient.subList(n-1, dataFromClient.size()));
         String statement = getUpdateQueryStatement(forStatement);
         if (callDiseaseTriggerIfNeed(forStatement, values)) {
             return false;
         }
-        return workWithPreparedStatement(statement, values.subList(0, values.size()-k));
+        if (dataFromClient.get(tableNameIndex).equals("disease_histories")) {
+            values.remove(values.size() - 1);
+        }
+        return workWithPreparedStatement(statement, values);
     }
 
     private boolean callDiseaseTriggerIfNeed(List<String> forStatement, List<String> values) {

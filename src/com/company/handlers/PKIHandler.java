@@ -150,7 +150,7 @@ public class PKIHandler {
     }
 
     public static String checkPrivateKey(String privateKey, String text) {
-        if (privateKey.equals("null")) {
+        if (!isEncrypted(privateKey) || privateKey.equals("null")) {
             return "false";
         }
         PKIHandler pki = new PKIHandler();
