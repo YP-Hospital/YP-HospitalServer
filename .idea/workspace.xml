@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e533dc8-599b-4a21-a331-ecdc023f4b44" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java" afterPath="$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" afterPath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
     </list>
     <ignored path="Server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,33 +42,41 @@
       <file leaf-file-name="TCPServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="336">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
+                <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
                 <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#run#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#workWithDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
                 <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PKIHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PKIHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="152" column="35" selection-start-line="152" selection-start-column="35" selection-end-line="152" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="2574">
+              <caret line="151" column="32" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseHandler.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DatabaseHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="92" column="38" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
+            <state relative-caret-position="424">
+              <caret line="117" column="77" selection-start-line="117" selection-start-column="77" selection-end-line="117" selection-end-column="77" />
               <folding>
                 <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
@@ -76,15 +84,14 @@
                 <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-                <marker date="1458858271038" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
-                <marker date="1458858271038" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
-                <marker date="1458858271038" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
-                <marker date="1458858271038" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
-                <marker date="1458858271038" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
-                <marker date="1458858271038" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
-                <marker date="1458858271038" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
+                <marker date="1458901252030" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
+                <marker date="1458901252030" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
+                <marker date="1458901252030" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
+                <marker date="1458901252030" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
+                <marker date="1458901252030" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
+                <marker date="1458901252030" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
+                <marker date="1458901252030" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
               </folding>
             </state>
           </provider>
@@ -167,8 +174,8 @@
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/handlers/PKIUtils.java" />
         <option value="$PROJECT_DIR$/src/com/company/TCPServer.java" />
-        <option value="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
         <option value="$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
       </list>
     </option>
   </component>
@@ -186,9 +193,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -390,8 +397,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -466,7 +473,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -982,7 +989,9 @@
       <workItem from="1458751752064" duration="550000" />
       <workItem from="1458753182950" duration="6396000" />
       <workItem from="1458827003519" duration="4261000" />
-      <workItem from="1458846079225" duration="5250000" />
+      <workItem from="1458846079225" duration="5670000" />
+      <workItem from="1458891285912" duration="6000" />
+      <workItem from="1458895370968" duration="4622000" />
     </task>
     <task id="LOCAL-00001" summary="version 1.0">
       <created>1457793700759</created>
@@ -1159,15 +1168,22 @@
       <option name="project" value="LOCAL" />
       <updated>1458858485084</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fixed exception when empty key">
+      <created>1458859322895</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1458859322895</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144247000" />
+    <option name="totallyTimeSpent" value="149295000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1178,7 +1194,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34895834" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22111663" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1233,19 +1249,32 @@
     <MESSAGE value="Some changes" />
     <MESSAGE value="Disease finish" />
     <MESSAGE value="histories trigger fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="histories trigger fixed" />
+    <MESSAGE value="fixed exception when empty key" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed exception when empty key" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
-          <line>192</line>
+          <line>194</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
+          <line>120</line>
+          <properties />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
+          <line>121</line>
+          <properties />
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="66" />
+      <option name="time" value="70" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1279,7 +1308,17 @@
         <state relative-caret-position="0">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
+            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#run#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#workWithDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
             <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
           </folding>
         </state>
@@ -1296,15 +1335,14 @@
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458858271038" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1330,7 +1368,17 @@
         <state relative-caret-position="0">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
+            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#run#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#workWithDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
             <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
           </folding>
         </state>
@@ -1347,15 +1395,14 @@
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458858271038" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1381,7 +1428,17 @@
         <state relative-caret-position="0">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
+            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#run#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#workWithDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
             <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
           </folding>
         </state>
@@ -1398,15 +1455,14 @@
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458858271038" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1432,7 +1488,17 @@
         <state relative-caret-position="0">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
+            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#run#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#workWithDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
             <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
           </folding>
         </state>
@@ -1449,15 +1515,14 @@
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458858271038" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1483,7 +1548,17 @@
         <state relative-caret-position="0">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
+            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#run#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#workWithDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
             <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
           </folding>
         </state>
@@ -1500,15 +1575,14 @@
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458858271038" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1526,7 +1600,17 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#run#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#workWithDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
             <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
           </folding>
         </state>
@@ -1543,15 +1627,14 @@
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458858271038" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1569,7 +1652,17 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#run#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#workWithDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
             <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
           </folding>
         </state>
@@ -1586,15 +1679,14 @@
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458858271038" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1612,7 +1704,17 @@
         <state relative-caret-position="0">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
+            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#run#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#workWithDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
             <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
           </folding>
         </state>
@@ -1762,12 +1864,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2574">
+          <caret line="151" column="32" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="336">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
+            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#run#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#workWithDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
             <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
           </folding>
         </state>
@@ -1775,8 +1895,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="92" column="38" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
+        <state relative-caret-position="424">
+          <caret line="117" column="77" selection-start-line="117" selection-start-column="77" selection-end-line="117" selection-end-column="77" />
           <folding>
             <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
@@ -1784,25 +1904,14 @@
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1458858271038" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
-            <marker date="1458858271038" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="152" column="35" selection-start-line="152" selection-start-column="35" selection-end-line="152" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1458901252030" expanded="false" signature="1277:1812" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="false" signature="1277:1858" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2511" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2586" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2786" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="2050:2828" placeholder="CREATE TABLE... IF" />
+            <marker date="1458901252030" expanded="true" signature="3017:3369" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>

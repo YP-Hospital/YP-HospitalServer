@@ -115,7 +115,9 @@ public class DatabaseHandler {
         if (callDiseaseTriggerIfNeed(dataFromClient, dataFromClient)) {
             return false;
         }
-        dataFromClient.remove(dataFromClient.size() - 1);
+        if (dataFromClient.get(tableNameIndex).equals("disease_histories")) {
+            dataFromClient.remove(dataFromClient.size() - 1);
+        }
         String statement = getInsertQueryStatement(dataFromClient);
         Boolean isSuccess =  workWithPreparedStatement(statement, dataFromClient);
         if (dataFromClient.get(tableNameIndex).equals("users")) {
@@ -262,7 +264,6 @@ public class DatabaseHandler {
                     } else if (table.equals("certificates")) {
                         result += separator + resultSet.getString("id")
                                 + separator + resultSet.getString("open_key")
-                                + separator + resultSet.getString("signature")
                                 + separator + resultSet.getString("doctor_id");
                     }
                 }
