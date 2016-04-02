@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DatabaseHandler {
-    private static int k = 0;
     private int tableNameIndex = 0;
     private int startFieldsNames = 1;
     private String separator = "][";
@@ -91,8 +90,13 @@ public class DatabaseHandler {
         if (signature.equals("false")) {
             return false;
         }
-        values.add(values.size() - 1, signature);
-        k = 1;
+        //If it is 9 strings in List, it mean list contains id of history and it will update
+        Boolean isUpdate = (values.size() == 9);
+        if (isUpdate) {
+            values.add(values.size() - 2, signature);
+        } else {
+            values.add(values.size() - 1, signature);
+        }
         return true;
     }
 
@@ -149,8 +153,8 @@ public class DatabaseHandler {
         List<String> values = new ArrayList<>(dataFromClient.subList(n-1, dataFromClient.size()));
         String statement = getUpdateQueryStatement(forStatement);
         if (dataFromClient.get(tableNameIndex).equals("disease_histories")) {
-            if (diseaseTriggerBeforeInsertOrUpdate(dataFromClient)) {
-                dataFromClient.remove(values.size() - 1);
+            if (diseaseTriggerBeforeInsertOrUpdate(values)) {
+                values.remove(values.size() - 1);
             } else return false;
         }
         return workWithPreparedStatement(statement, values);
@@ -159,7 +163,6 @@ public class DatabaseHandler {
     @NotNull
     private Boolean workWithPreparedStatement(String statement, List<String> dataFromClient) {
         try {
-            k = 0;
             preparedStatement = connect
                     .prepareStatement(statement);
             if (dataFromClient != null) {
