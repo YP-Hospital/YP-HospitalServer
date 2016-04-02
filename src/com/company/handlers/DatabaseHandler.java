@@ -23,12 +23,16 @@ public class DatabaseHandler {
             Class.forName("com.mysql.jdbc.Driver"); // This will load the MySQL driver, each DB has its own driver
             databaseConfig = new PropertiesHandler("databaseConfig.properties");
             connect = DriverManager.getConnection(databaseConfig.getPropertyByName("host"), databaseConfig.getProperty());
-            createUsersTable();
-            createDiseaseHistoryTable();
-            createCertificateTable();
+            createTables();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void createTables() throws SQLException {
+        createUsersTable();
+        createDiseaseHistoryTable();
+        createCertificateTable();
     }
 
     private void createUsersTable() throws SQLException {
@@ -74,7 +78,6 @@ public class DatabaseHandler {
         stmt.execute(sqlCreate);
     }
 
-
     private void userTriggerAfterInsert(String login) {
         String newUser = select(new ArrayList<>(Arrays.asList(new String[]{"users", "id", "role", "where", "login", login})));
         if (newUser.split(separatorForSplit)[4].equals("Doctor")) {
@@ -83,14 +86,23 @@ public class DatabaseHandler {
         }
     }
 
+    private boolean diseaseTriggerBeforeInsertOrUpdate(List<String> values) {
+        String signature = getSignature(values);
+        if (signature.equals("false")) {
+            return false;
+        }
+        values.add(values.size() - 1, signature);
+        k = 1;
+        return true;
+    }
 
-    private String updateCertificatesTrigger(List<String> value) {
+    private String getSignature(List<String> value) {
         Integer n = 5;
         String mainData = "";
         for (int i = 1; i < n; i++) {
             mainData += value.get(i) + " ";
         }
-        return PKIHandler.checkPrivateKey(value.get(value.size() - 1), mainData);
+        return PKIHandler.getNewSignature(value.get(value.size() - 1), mainData);
     }
 
     public String select(List<String> dataFromClient) {
@@ -112,11 +124,10 @@ public class DatabaseHandler {
 
     public Boolean insert(List<String> dataFromClient) {
         int loginIndex = 1;
-        if (callDiseaseTriggerIfNeed(dataFromClient, dataFromClient)) {
-            return false;
-        }
         if (dataFromClient.get(tableNameIndex).equals("disease_histories")) {
-            dataFromClient.remove(dataFromClient.size() - 1);
+            if (diseaseTriggerBeforeInsertOrUpdate(dataFromClient)) {
+                dataFromClient.remove(dataFromClient.size() - 1);
+            } else return false;
         }
         String statement = getInsertQueryStatement(dataFromClient);
         Boolean isSuccess =  workWithPreparedStatement(statement, dataFromClient);
@@ -137,25 +148,12 @@ public class DatabaseHandler {
         List<String> forStatement = new ArrayList<>(dataFromClient.subList(0, n));
         List<String> values = new ArrayList<>(dataFromClient.subList(n-1, dataFromClient.size()));
         String statement = getUpdateQueryStatement(forStatement);
-        if (callDiseaseTriggerIfNeed(forStatement, values)) {
-            return false;
-        }
         if (dataFromClient.get(tableNameIndex).equals("disease_histories")) {
-            values.remove(values.size() - 1);
+            if (diseaseTriggerBeforeInsertOrUpdate(dataFromClient)) {
+                dataFromClient.remove(values.size() - 1);
+            } else return false;
         }
         return workWithPreparedStatement(statement, values);
-    }
-
-    private boolean callDiseaseTriggerIfNeed(List<String> forStatement, List<String> values) {
-        if (forStatement.get(0).equals("disease_histories")) {
-            String signature = updateCertificatesTrigger(values);
-            if (signature.equals("false")) {
-                return true;
-            }
-            values.add(values.size() - 1, signature);
-            k = 1;
-        }
-        return false;
     }
 
     @NotNull

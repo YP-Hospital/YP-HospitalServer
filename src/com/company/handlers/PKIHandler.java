@@ -24,9 +24,9 @@ public class PKIHandler {
             KeyPair pair = keyGen.generateKeyPair();
             this.privateKey = pair.getPrivate();
             this.publicKey = pair.getPublic();
-            System.out.println("Public key: " + getString(
+            System.out.println("Public key: " + getStringFromBytes(
                     publicKey.getEncoded()));
-            System.out.println("Private key: " + getString(
+            System.out.println("Private key: " + getStringFromBytes(
                     privateKey.getEncoded()));
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,7 +36,7 @@ public class PKIHandler {
     private static PrivateKey getPrivateKey(String privateKey) {
         PrivateKey key = null;
         try {
-            byte[] publicBytes = getBytes(privateKey);
+            byte[] publicBytes = getBytesFromString(privateKey);
             PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(publicBytes);
             KeyFactory keyFactory = KeyFactory.getInstance(PKI_ALGORITHM);
             key = keyFactory.generatePrivate(keySpec);
@@ -51,7 +51,7 @@ public class PKIHandler {
     private static PublicKey getPublicKey(String publicKey) {
         PublicKey key = null;
         try {
-            byte[] publicBytes = getBytes(publicKey);
+            byte[] publicBytes = getBytesFromString(publicKey);
             X509EncodedKeySpec keySpec = new X509EncodedKeySpec(publicBytes);
             KeyFactory keyFactory = KeyFactory.getInstance(PKI_ALGORITHM);
             key = keyFactory.generatePublic(keySpec);
@@ -65,11 +65,11 @@ public class PKIHandler {
 
     private String sign(String plaintext) {
         try {
-            Signature dsa = Signature.getInstance(SIGNATURE_ALGORITHM);
-            dsa.initSign(privateKey);
-            dsa.update(plaintext.getBytes());
-            byte[] signature = dsa.sign();
-            return getString(signature);
+            Signature ecdsa = Signature.getInstance(SIGNATURE_ALGORITHM);
+            ecdsa.initSign(privateKey);
+            ecdsa.update(plaintext.getBytes());
+            byte[] signature = ecdsa.sign();
+            return getStringFromBytes(signature);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,11 +78,10 @@ public class PKIHandler {
 
     public boolean verifySignature(String plaintext, String signature) {
         try {
-            Signature dsa = Signature.getInstance(SIGNATURE_ALGORITHM);
-            dsa.initVerify(publicKey);
-
-            dsa.update(plaintext.getBytes());
-            boolean verifies = dsa.verify(getBytes(signature));
+            Signature ecdsa = Signature.getInstance(SIGNATURE_ALGORITHM);
+            ecdsa.initVerify(publicKey);
+            ecdsa.update(plaintext.getBytes());
+            boolean verifies = ecdsa.verify(getBytesFromString(signature));
             System.out.println("signature verifies: " + verifies);
             return verifies;
         } catch (Exception e) {
@@ -98,7 +97,6 @@ public class PKIHandler {
         // If the string does not have any separators then it is not
         // encrypted
         if (text.indexOf('-') == -1) {
-            ///System.out.println( "text is not encrypted: no dashes" );
             return false;
         }
 
@@ -114,11 +112,10 @@ public class PKIHandler {
                 }
             }
         }
-        //System.out.println( "text is encrypted" );
         return true;
     }
 
-    private static String getString(byte[] bytes) {
+    private static String getStringFromBytes(byte[] bytes) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < bytes.length; i++) {
             byte b = bytes[i];
@@ -130,7 +127,7 @@ public class PKIHandler {
         return sb.toString();
     }
 
-    private static byte[] getBytes(String str) {
+    private static byte[] getBytesFromString(String str) {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         StringTokenizer st = new StringTokenizer(str, "-", false);
         while (st.hasMoreTokens()) {
@@ -140,16 +137,14 @@ public class PKIHandler {
         return bos.toByteArray();
     }
 
-    public static List<String> createKeysToUser(String id) {
+    public static List<String> createKeysToUser(String userId) {
         PKIHandler pki = new PKIHandler();
         pki.generateKeys();
-//        String signature = pki.sign(PHRASE);
-//        System.out.println("Signature: " + signature);
-        TCPServer.setMessageFromAnotherClass(getString(pki.privateKey.getEncoded()));
-        return getCertificateToInsert(id, pki);
+        TCPServer.setMessageFromAnotherClass(getStringFromBytes(pki.privateKey.getEncoded()));
+        return getCertificateToInsert(userId, pki);
     }
 
-    public static String checkPrivateKey(String privateKey, String text) {
+    public static String getNewSignature(String privateKey, String text) {
         if (!isEncrypted(privateKey) || privateKey.equals("null")) {
             return "false";
         }
@@ -164,11 +159,11 @@ public class PKIHandler {
     }
 
     @NotNull
-    private static List<String> getCertificateToInsert(String id, PKIHandler pki) {
+    private static List<String> getCertificateToInsert(String userId, PKIHandler pki) {
         List<String> certificateToInsert = new ArrayList<>();
         certificateToInsert.add("certificates");
-        certificateToInsert.add(getString(pki.publicKey.getEncoded()));
-        certificateToInsert.add(id);
+        certificateToInsert.add(getStringFromBytes(pki.publicKey.getEncoded()));
+        certificateToInsert.add(userId);
         return certificateToInsert;
     }
 }

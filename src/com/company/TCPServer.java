@@ -114,15 +114,8 @@ public class TCPServer extends Thread {
                 answer = String.valueOf(databaseHandler.update(convertedDataFromClient));
                 break;
             case "select":
-                String tmp = databaseHandler.select(convertedDataFromClient);
-                if (tmp.isEmpty()) {
-                    answer = "false";
-                    sendAnswer();
-                } else {
-                    answer = "true";
-                    sendAnswer();
-                }
-                answer = tmp;
+                answer = databaseHandler.select(convertedDataFromClient);
+                sendToClientIsSelectSuccess(answer);
                 break;
             default:
                 System.out.println("Data isn't correct");
@@ -130,14 +123,23 @@ public class TCPServer extends Thread {
         }
     }
 
+    private void sendToClientIsSelectSuccess(String answer) {
+        String message = String.valueOf(!answer.isEmpty());
+        sendMessage(message);
+    }
+
     private String convertMessagesForDatabaseHandler(String messageFromClient) {
         List<String> splitMessageFromClient = Arrays.asList(messageFromClient.split(separator));
         splitMessageFromClient.removeIf(s -> s.equals(""));
         String methodName = splitMessageFromClient.get(0);
+        setConvertedDataFromClient(splitMessageFromClient);
+        return methodName;
+    }
+
+    private void setConvertedDataFromClient(List<String> splitMessageFromClient) {
         convertedDataFromClient = new ArrayList<>();
         convertedDataFromClient.addAll(splitMessageFromClient);
         convertedDataFromClient.remove(0);
-        return methodName;
     }
 
     private String getMessages() throws IOException {
