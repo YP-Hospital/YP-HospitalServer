@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8e533dc8-599b-4a21-a331-ecdc023f4b44" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" afterPath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
     </list>
     <ignored path="Server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1031,7 +1030,7 @@
       <workItem from="1459575216599" duration="2379000" />
       <workItem from="1459590572696" duration="282000" />
       <workItem from="1459590888237" duration="2567000" />
-      <workItem from="1459593600544" duration="679000" />
+      <workItem from="1459593600544" duration="739000" />
     </task>
     <task id="LOCAL-00001" summary="version 1.0">
       <created>1457793700759</created>
@@ -1236,11 +1235,18 @@
       <option name="project" value="LOCAL" />
       <updated>1459577535687</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="diseaseTrigger fixed">
+      <created>1459594305176</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1459594305176</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161364000" />
+    <option name="totallyTimeSpent" value="161424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
@@ -1286,7 +1292,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="version 2.0" />
     <MESSAGE value="version 2.1" />
     <MESSAGE value="version 3.0" />
     <MESSAGE value="version 4.0" />
@@ -1311,7 +1316,8 @@
     <MESSAGE value="fixed exception when empty key" />
     <MESSAGE value="Done" />
     <MESSAGE value="Refactor done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor done" />
+    <MESSAGE value="diseaseTrigger fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="diseaseTrigger fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
