@@ -1,5 +1,6 @@
 package com.company.handlers;
 
+import com.company.Crypto.PKI;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.*;
@@ -60,7 +61,7 @@ public class DatabaseHandler {
                 + "   patient_id                  INT UNSIGNED  NOT NULL,"
                 + "   last_modified_by            VARCHAR(1000) NOT NULL,"
                 + "   signature_of_last_modified  VARCHAR(1000) NOT NULL,"
-                + "   FOREIGN KEY (patient_id) REFERENCES users(id)) CHARACTER SET = utf8 ";
+                + "   FOREIGN KEY (patient_id) REFERENCES users(id) ON DELETE CASCADE ) CHARACTER SET = utf8 ";
 
         Statement stmt = connect.createStatement();
         stmt.execute(sqlCreate);
@@ -71,7 +72,7 @@ public class DatabaseHandler {
                 + "  (id           INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
                 + "   open_key     VARCHAR(225)  NOT NULL UNIQUE,"
                 + "   doctor_id    INT UNSIGNED  NOT NULL,"
-                + "   FOREIGN KEY (doctor_id) REFERENCES users(id)) CHARACTER SET = utf8 ";
+                + "   FOREIGN KEY (doctor_id) REFERENCES users(id) ON DELETE CASCADE) CHARACTER SET = utf8 ";
 
         Statement stmt = connect.createStatement();
         stmt.execute(sqlCreate);
@@ -80,7 +81,7 @@ public class DatabaseHandler {
     private void userTriggerAfterInsert(String login) {
         String newUser = select(new ArrayList<>(Arrays.asList(new String[]{"users", "id", "role", "where", "login", login})));
         if (newUser.split(separatorForSplit)[4].equals("Doctor")) {
-            List<String> certificateToInsert = PKIHandler.createKeysToUser(newUser.split(separatorForSplit)[3]);
+            List<String> certificateToInsert = PKI.createKeysToUser(newUser.split(separatorForSplit)[3]);
             insert(certificateToInsert);
         }
     }
@@ -106,7 +107,7 @@ public class DatabaseHandler {
         for (int i = 1; i < n; i++) {
             mainData += value.get(i) + " ";
         }
-        return PKIHandler.getNewSignature(value.get(value.size() - 1), mainData);
+        return PKI.getNewSignature(value.get(value.size() - 1), mainData);
     }
 
     public String select(List<String> dataFromClient) {

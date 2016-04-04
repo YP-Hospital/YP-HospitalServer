@@ -1,4 +1,4 @@
-package com.company.handlers;
+package com.company.Crypto;
 
 import com.company.TCPServer;
 import org.jetbrains.annotations.NotNull;
@@ -10,9 +10,9 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.*;
 import java.io.*;
 
-public class PKIHandler {
+public class PKI {
     private static final String PKI_ALGORITHM = "EC";
-    private final static String HASH_ALGORITHM = "SHA1";
+    private final static String HASH_ALGORITHM = "MD5";
     private final static String SIGNATURE_ALGORITHM = HASH_ALGORITHM + "with" + PKI_ALGORITHM + "DSA";
     private PrivateKey privateKey;
     private PublicKey publicKey;
@@ -36,8 +36,8 @@ public class PKIHandler {
     private static PrivateKey getPrivateKey(String privateKey) {
         PrivateKey key = null;
         try {
-            byte[] publicBytes = getBytesFromString(privateKey);
-            PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(publicBytes);
+            byte[] privateBytes = getBytesFromString(privateKey);
+            PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(privateBytes);
             KeyFactory keyFactory = KeyFactory.getInstance(PKI_ALGORITHM);
             key = keyFactory.generatePrivate(keySpec);
         } catch (NoSuchAlgorithmException e) {
@@ -115,7 +115,7 @@ public class PKIHandler {
         return true;
     }
 
-    private static String getStringFromBytes(byte[] bytes) {
+    public static String getStringFromBytes(byte[] bytes) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < bytes.length; i++) {
             byte b = bytes[i];
@@ -127,7 +127,7 @@ public class PKIHandler {
         return sb.toString();
     }
 
-    private static byte[] getBytesFromString(String str) {
+    public static byte[] getBytesFromString(String str) {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         StringTokenizer st = new StringTokenizer(str, "-", false);
         while (st.hasMoreTokens()) {
@@ -138,7 +138,7 @@ public class PKIHandler {
     }
 
     public static List<String> createKeysToUser(String userId) {
-        PKIHandler pki = new PKIHandler();
+        PKI pki = new PKI();
         pki.generateKeys();
         TCPServer.setMessageFromAnotherClass(getStringFromBytes(pki.privateKey.getEncoded()));
         return getCertificateToInsert(userId, pki);
@@ -148,7 +148,7 @@ public class PKIHandler {
         if (!isEncrypted(privateKey) || privateKey.equals("null")) {
             return "false";
         }
-        PKIHandler pki = new PKIHandler();
+        PKI pki = new PKI();
         pki.privateKey = getPrivateKey(privateKey);
         if (pki.privateKey == null) {
             return "false";
@@ -159,7 +159,7 @@ public class PKIHandler {
     }
 
     @NotNull
-    private static List<String> getCertificateToInsert(String userId, PKIHandler pki) {
+    private static List<String> getCertificateToInsert(String userId, PKI pki) {
         List<String> certificateToInsert = new ArrayList<>();
         certificateToInsert.add("certificates");
         certificateToInsert.add(getStringFromBytes(pki.publicKey.getEncoded()));

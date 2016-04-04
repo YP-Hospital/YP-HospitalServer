@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e533dc8-599b-4a21-a331-ecdc023f4b44" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/Crypto/Shamir.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java" afterPath="$PROJECT_DIR$/src/com/company/Crypto/PKI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/TCPServer.java" afterPath="$PROJECT_DIR$/src/com/company/TCPServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" afterPath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
     </list>
     <ignored path="Server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,8 +46,8 @@
       <file leaf-file-name="TCPServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="846">
-              <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+            <state relative-caret-position="262">
+              <caret line="109" column="59" selection-start-line="109" selection-start-column="59" selection-end-line="109" selection-end-column="59" />
               <folding>
                 <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
                 <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
@@ -51,7 +56,6 @@
                 <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
                 <element signature="method#run#0;class#TCPServer#0" expanded="false" />
                 <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
-                <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
                 <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
                 <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
                 <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
@@ -62,24 +66,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PKIHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java">
+      <file leaf-file-name="PKI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/PKI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="146" column="40" selection-start-line="146" selection-start-column="40" selection-end-line="146" selection-end-column="40" />
+            <state relative-caret-position="18">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding>
-                <element signature="method#generateKeys#0;class#PKIHandler#0" expanded="false" />
-                <element signature="method#getPrivateKey#0;class#PKIHandler#0" expanded="false" />
-                <element signature="method#getPublicKey#0;class#PKIHandler#0" expanded="false" />
-                <element signature="method#sign#0;class#PKIHandler#0" expanded="false" />
-                <element signature="method#verifySignature#0;class#PKIHandler#0" expanded="false" />
-                <element signature="docComment;method#isEncrypted#0;class#PKIHandler#0" expanded="false" />
-                <element signature="method#isEncrypted#0;class#PKIHandler#0" expanded="false" />
-                <element signature="e#3495#3555#0" expanded="false" />
-                <element signature="method#getStringFromBytes#0;class#PKIHandler#0" expanded="false" />
-                <element signature="method#getBytesFromString#0;class#PKIHandler#0" expanded="false" />
-                <element signature="method#createKeysToUser#0;class#PKIHandler#0" expanded="false" />
-                <element signature="method#getCertificateToInsert#0;class#PKIHandler#0" expanded="false" />
+                <element signature="method#generateKeys#0;class#PKI#0" expanded="false" />
+                <element signature="method#getPublicKey#0;class#PKI#0" expanded="false" />
+                <element signature="method#sign#0;class#PKI#0" expanded="false" />
+                <element signature="method#verifySignature#0;class#PKI#0" expanded="false" />
+                <element signature="docComment;method#isEncrypted#0;class#PKI#0" expanded="false" />
+                <element signature="method#isEncrypted#0;class#PKI#0" expanded="false" />
+                <element signature="e#3487#3547#0" expanded="false" />
+                <element signature="method#createKeysToUser#0;class#PKI#0" expanded="false" />
+                <element signature="method#getNewSignature#0;class#PKI#0" expanded="false" />
+                <element signature="method#getCertificateToInsert#0;class#PKI#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -88,32 +90,62 @@
       <file leaf-file-name="DatabaseHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+            <state relative-caret-position="366">
+              <caret line="69" column="63" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
               <folding>
                 <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-                <marker date="1459594111029" expanded="false" signature="1324:1859" placeholder="CREATE TABLE... IF" />
-                <marker date="1459594111029" expanded="false" signature="1324:1905" placeholder="CREATE TABLE... IF" />
-                <marker date="1459594111029" expanded="false" signature="2097:2558" placeholder="CREATE TABLE... IF" />
-                <marker date="1459594111029" expanded="false" signature="2097:2633" placeholder="CREATE TABLE... IF" />
-                <marker date="1459594111029" expanded="false" signature="2097:2833" placeholder="CREATE TABLE... IF" />
-                <marker date="1459594111029" expanded="false" signature="2097:2875" placeholder="CREATE TABLE... IF" />
-                <marker date="1459594111029" expanded="false" signature="3064:3416" placeholder="CREATE TABLE... IF" />
+                <marker date="1459793425559" expanded="true" signature="1355:1890" placeholder="CREATE TABLE... IF" />
+                <marker date="1459793425559" expanded="true" signature="1355:1936" placeholder="CREATE TABLE... IF" />
+                <marker date="1459793425559" expanded="false" signature="2128:2589" placeholder="CREATE TABLE... IF" />
+                <marker date="1459793425559" expanded="false" signature="2128:2664" placeholder="CREATE TABLE... IF" />
+                <marker date="1459793425559" expanded="true" signature="2128:2864" placeholder="CREATE TABLE... IF" />
+                <marker date="1459793425559" expanded="true" signature="2128:2925" placeholder="CREATE TABLE... IF" />
+                <marker date="1459793425559" expanded="true" signature="3114:3484" placeholder="CREATE TABLE... IF" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shamir.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/Shamir.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <folding>
+                <element signature="method#Shamir#0;class#Shamir#0" expanded="false" />
+                <element signature="method#split#0;class#Shamir#0" expanded="false" />
+                <element signature="method#combine#0;class#Shamir#0" expanded="false" />
+                <element signature="method#randomZp#0;class#Shamir#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExtraCrypto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getHexadecimalValue#0;class#ExtraCrypto#0" expanded="false" />
+                <element signature="method#hexStringToByteArray#0;class#ExtraCrypto#0" expanded="false" />
+                <element signature="method#textSymmetricKeyDecrypt#0;class#ExtraCrypto#0" expanded="false" />
+                <element signature="method#textSymmetricKeyEncrypt#0;class#ExtraCrypto#0" expanded="false" />
+                <element signature="method#textToHash#0;class#ExtraCrypto#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -201,6 +233,10 @@
         <option value="$PROJECT_DIR$/src/com/company/handlers/PKIUtils.java" />
         <option value="$PROJECT_DIR$/src/com/company/TCPServer.java" />
         <option value="$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/company/handlers/Shamir.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Crypto/PKIHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Crypto/Shamir.java" />
         <option value="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
       </list>
     </option>
@@ -423,7 +459,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -453,10 +489,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -500,10 +532,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="company" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Crypto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -519,15 +573,15 @@
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/com/company" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/com/company" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/com/company/helpingClasses" />
       <recent name="$PROJECT_DIR$/src/res" />
       <recent name="$PROJECT_DIR$/src" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/com/company" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -546,6 +600,26 @@
       <envs />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Shamir" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.company.Crypto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.company.Crypto.Shamir" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Server" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -956,12 +1030,14 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Shamir" />
     </list>
     <recent_temporary>
-      <list size="1">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Shamir" />
       </list>
     </recent_temporary>
   </component>
@@ -1030,7 +1106,12 @@
       <workItem from="1459575216599" duration="2379000" />
       <workItem from="1459590572696" duration="282000" />
       <workItem from="1459590888237" duration="2567000" />
-      <workItem from="1459593600544" duration="739000" />
+      <workItem from="1459593600544" duration="866000" />
+      <workItem from="1459595830421" duration="597000" />
+      <workItem from="1459612694499" duration="5455000" />
+      <workItem from="1459679554113" duration="673000" />
+      <workItem from="1459710405312" duration="6249000" />
+      <workItem from="1459758548856" duration="4317000" />
     </task>
     <task id="LOCAL-00001" summary="version 1.0">
       <created>1457793700759</created>
@@ -1242,11 +1323,18 @@
       <option name="project" value="LOCAL" />
       <updated>1459594305176</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="diseaseTrigger fixed">
+      <created>1459594347035</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1459594347035</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161424000" />
+    <option name="totallyTimeSpent" value="178842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
@@ -1260,17 +1348,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34895834" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34895834" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22664456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21337755" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1324,40 +1412,35 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
-          <line>198</line>
+          <line>199</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
-          <line>149</line>
-          <properties />
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
-          <line>150</line>
-          <properties />
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
-          <line>151</line>
-          <properties />
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
-          <line>94</line>
+          <line>95</line>
           <properties />
           <option name="timeStamp" value="89" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/Crypto/PKI.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
+          <line>235</line>
+          <properties />
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="92" />
+      <option name="time" value="102" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="resultSet" language="JAVA" custom="" />
+        <watch expression="AES_KEYSIZES" language="JAVA" custom="" />
       </configuration>
     </watches-manager>
   </component>
@@ -1366,14 +1449,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1386,7 +1461,6 @@
             <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="method#run#0;class#TCPServer#0" expanded="false" />
             <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
             <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
@@ -1403,27 +1477,25 @@
           <folding>
             <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1459594111029" expanded="false" signature="1324:1859" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="1324:1905" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2633" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2833" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2875" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="3064:3416" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1890" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1936" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2589" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2664" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2864" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2925" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="3114:3484" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1455,7 +1527,6 @@
             <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="method#run#0;class#TCPServer#0" expanded="false" />
             <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
             <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
@@ -1472,27 +1543,25 @@
           <folding>
             <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1459594111029" expanded="false" signature="1324:1859" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="1324:1905" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2633" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2833" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2875" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="3064:3416" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1890" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1936" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2589" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2664" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2864" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2925" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="3114:3484" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1524,76 +1593,6 @@
             <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="method#run#0;class#TCPServer#0" expanded="false" />
             <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1459594111029" expanded="false" signature="1324:1859" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="1324:1905" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2633" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2833" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2875" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="3064:3416" placeholder="CREATE TABLE... IF" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/res/databaseConfig.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding>
-            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
-            <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#run#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
             <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
@@ -1610,27 +1609,25 @@
           <folding>
             <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1459594111029" expanded="false" signature="1324:1859" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="1324:1905" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2633" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2833" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2875" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="3064:3416" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1890" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1936" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2589" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2664" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2864" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2925" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="3114:3484" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1662,7 +1659,6 @@
             <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="method#run#0;class#TCPServer#0" expanded="false" />
             <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
             <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
@@ -1679,27 +1675,25 @@
           <folding>
             <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1459594111029" expanded="false" signature="1324:1859" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="1324:1905" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2633" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2833" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2875" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="3064:3416" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1890" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1936" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2589" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2664" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2864" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2925" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="3114:3484" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1724,7 +1718,6 @@
             <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="method#run#0;class#TCPServer#0" expanded="false" />
             <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
             <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
@@ -1741,27 +1734,25 @@
           <folding>
             <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1459594111029" expanded="false" signature="1324:1859" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="1324:1905" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2633" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2833" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2875" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="3064:3416" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1890" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1936" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2589" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2664" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2864" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2925" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="3114:3484" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1786,7 +1777,6 @@
             <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="method#run#0;class#TCPServer#0" expanded="false" />
             <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
             <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
@@ -1803,27 +1793,25 @@
           <folding>
             <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1459594111029" expanded="false" signature="1324:1859" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="1324:1905" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2633" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2833" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2875" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="3064:3416" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1890" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1936" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2589" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2664" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2864" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2925" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="3114:3484" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1848,7 +1836,6 @@
             <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="method#run#0;class#TCPServer#0" expanded="false" />
             <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
             <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
@@ -1978,6 +1965,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/databaseConfig.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -2006,38 +2000,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/handlers/PKIHandler.java">
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/jre/lib/jce.jar!/javax/crypto/spec/SecretKeySpec.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="146" column="40" selection-start-line="146" selection-start-column="40" selection-end-line="146" selection-end-column="40" />
+        <state relative-caret-position="198">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/jre/lib/ext/sunjce_provider.jar!/com/sun/crypto/provider/AESCipher.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/jre/lib/ext/sunjce_provider.jar!/com/sun/crypto/provider/AESCrypt.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/PKI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
-            <element signature="method#generateKeys#0;class#PKIHandler#0" expanded="false" />
-            <element signature="method#getPrivateKey#0;class#PKIHandler#0" expanded="false" />
-            <element signature="method#getPublicKey#0;class#PKIHandler#0" expanded="false" />
-            <element signature="method#sign#0;class#PKIHandler#0" expanded="false" />
-            <element signature="method#verifySignature#0;class#PKIHandler#0" expanded="false" />
-            <element signature="docComment;method#isEncrypted#0;class#PKIHandler#0" expanded="false" />
-            <element signature="method#isEncrypted#0;class#PKIHandler#0" expanded="false" />
-            <element signature="e#3495#3555#0" expanded="false" />
-            <element signature="method#getStringFromBytes#0;class#PKIHandler#0" expanded="false" />
-            <element signature="method#getBytesFromString#0;class#PKIHandler#0" expanded="false" />
-            <element signature="method#createKeysToUser#0;class#PKIHandler#0" expanded="false" />
-            <element signature="method#getCertificateToInsert#0;class#PKIHandler#0" expanded="false" />
+            <element signature="method#generateKeys#0;class#PKI#0" expanded="false" />
+            <element signature="method#getPublicKey#0;class#PKI#0" expanded="false" />
+            <element signature="method#sign#0;class#PKI#0" expanded="false" />
+            <element signature="method#verifySignature#0;class#PKI#0" expanded="false" />
+            <element signature="docComment;method#isEncrypted#0;class#PKI#0" expanded="false" />
+            <element signature="method#isEncrypted#0;class#PKI#0" expanded="false" />
+            <element signature="e#3487#3547#0" expanded="false" />
+            <element signature="method#createKeysToUser#0;class#PKI#0" expanded="false" />
+            <element signature="method#getNewSignature#0;class#PKI#0" expanded="false" />
+            <element signature="method#getCertificateToInsert#0;class#PKI#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/res/databaseConfig.properties">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        <state relative-caret-position="360">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getHexadecimalValue#0;class#ExtraCrypto#0" expanded="false" />
+            <element signature="method#hexStringToByteArray#0;class#ExtraCrypto#0" expanded="false" />
+            <element signature="method#textSymmetricKeyDecrypt#0;class#ExtraCrypto#0" expanded="false" />
+            <element signature="method#textSymmetricKeyEncrypt#0;class#ExtraCrypto#0" expanded="false" />
+            <element signature="method#textToHash#0;class#ExtraCrypto#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/Shamir.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding>
+            <element signature="method#Shamir#0;class#Shamir#0" expanded="false" />
+            <element signature="method#split#0;class#Shamir#0" expanded="false" />
+            <element signature="method#combine#0;class#Shamir#0" expanded="false" />
+            <element signature="method#randomZp#0;class#Shamir#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+        <state relative-caret-position="262">
+          <caret line="109" column="59" selection-start-line="109" selection-start-column="59" selection-end-line="109" selection-end-column="59" />
           <folding>
             <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
@@ -2046,7 +2080,6 @@
             <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="method#run#0;class#TCPServer#0" expanded="false" />
             <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#callingNeededFunctionInDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
             <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
             <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
@@ -2058,32 +2091,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+        <state relative-caret-position="366">
+          <caret line="69" column="63" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
           <folding>
             <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
-            <marker date="1459594111029" expanded="false" signature="1324:1859" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="1324:1905" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2558" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2633" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2833" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="2097:2875" placeholder="CREATE TABLE... IF" />
-            <marker date="1459594111029" expanded="false" signature="3064:3416" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1890" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="1355:1936" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2589" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="false" signature="2128:2664" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2864" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="2128:2925" placeholder="CREATE TABLE... IF" />
+            <marker date="1459793425559" expanded="true" signature="3114:3484" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>

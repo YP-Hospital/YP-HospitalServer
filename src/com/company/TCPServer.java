@@ -1,7 +1,6 @@
 package com.company;
 
 import com.company.handlers.DatabaseHandler;
-import com.company.handlers.PKIHandler;
 
 import java.io.*;
 import java.net.ServerSocket;
