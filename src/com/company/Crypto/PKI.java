@@ -1,19 +1,34 @@
 package com.company.Crypto;
 
+import com.company.Crypto.Shamir.InfoToShamir;
+import com.company.Crypto.Shamir.Shamir;
 import com.company.TCPServer;
+import com.company.handlers.DatabaseHandler;
 import org.jetbrains.annotations.NotNull;
 
-import java.security.*;
+import java.io.ByteArrayOutputStream;
+import java.math.BigInteger;
+import java.security.KeyFactory;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.Signature;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.*;
-import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class PKI {
     private static final String PKI_ALGORITHM = "EC";
-    private final static String HASH_ALGORITHM = "MD5";
+    private final static String HASH_ALGORITHM = "SHA1";
     private final static String SIGNATURE_ALGORITHM = HASH_ALGORITHM + "with" + PKI_ALGORITHM + "DSA";
+    private static String partToInputIntoDB;
+    private static InfoToShamir info;
     private PrivateKey privateKey;
     private PublicKey publicKey;
 
@@ -140,12 +155,31 @@ public class PKI {
     public static List<String> createKeysToUser(String userId) {
         PKI pki = new PKI();
         pki.generateKeys();
-        TCPServer.setMessageFromAnotherClass(getStringFromBytes(pki.privateKey.getEncoded()));
+        String shorteKey = generateShorterKey(getStringFromBytes(pki.privateKey.getEncoded()));
+        TCPServer.setMessageFromAnotherClass(shorteKey);
         return getCertificateToInsert(userId, pki);
     }
 
-    public static String getNewSignature(String privateKey, String text) {
-        if (!isEncrypted(privateKey) || privateKey.equals("null")) {
+    private static String generateShorterKey(String privateKey) {
+        String[] separatedKey = privateKey.split("-");
+        String partToSeparateByShamir =  separatedKey[separatedKey.length-1];
+        info = Shamir.getKeysByShamir(partToSeparateByShamir);
+        partToInputIntoDB = privateKey.substring(0, privateKey.length() - partToSeparateByShamir.length());
+        partToInputIntoDB =  encryptFirstPartOfKey(partToInputIntoDB);
+        return info.getShares()[1].getShare().toString();
+    }
+
+    private static String encryptFirstPartOfKey(String partToInputIntoDB) {
+        String result = ExtraCrypto.textSymmetricKeyEncrypt(partToInputIntoDB, info.getShares()[1].getShare().toString());
+        return result;
+    }
+
+    public static String getNewSignature(String key, String text) {
+        if (key.equals("null")) {
+            return "false";
+        }
+        String privateKey = restorePrivateKey(key);
+        if (privateKey == null) {
             return "false";
         }
         PKI pki = new PKI();
@@ -158,12 +192,34 @@ public class PKI {
         }
     }
 
+    private static String restorePrivateKey(String key) {
+        String privateKey = "";
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        String certificates = databaseHandler.select(new ArrayList<>(Arrays.asList(new String[]{"certificates", "first_part_key",
+                                                                          "servers_key", "prime"})));
+        System.out.println(certificates);
+        List<String> certificatesData = new ArrayList<>(Arrays.asList(certificates.split(DatabaseHandler.separatorForSplit)));
+        for (int i = 4; i < certificatesData.size(); i+=4) {
+            privateKey += ExtraCrypto.textSymmetricKeyDecrypt(certificatesData.get(i), key);
+            if (isEncrypted(privateKey)) {
+                InfoToShamir info = new InfoToShamir(new BigInteger(certificatesData.get(i+2)), certificatesData.get(i+1), key);
+                privateKey += Shamir.getSecretBack(info);
+                return privateKey;
+            }
+            privateKey = "";
+        }
+        return null;
+    }
+
     @NotNull
     private static List<String> getCertificateToInsert(String userId, PKI pki) {
         List<String> certificateToInsert = new ArrayList<>();
         certificateToInsert.add("certificates");
         certificateToInsert.add(getStringFromBytes(pki.publicKey.getEncoded()));
         certificateToInsert.add(userId);
+        certificateToInsert.add(partToInputIntoDB);
+        certificateToInsert.add(info.getShares()[0].getShare().toString());
+        certificateToInsert.add(info.getPrime().toString());
         return certificateToInsert;
     }
 }

@@ -12,7 +12,7 @@ public class DatabaseHandler {
     private int tableNameIndex = 0;
     private int startFieldsNames = 1;
     private String separator = "][";
-    private String separatorForSplit = "]\\[";
+    public static String separatorForSplit = "]\\[";
     private Connection connect = null;
     private PreparedStatement preparedStatement = null; // PreparedStatements can use variables and are more efficient
     private ResultSet resultSet = null;
@@ -69,9 +69,12 @@ public class DatabaseHandler {
 
     private void createCertificateTable() throws SQLException {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS certificates  "
-                + "  (id           INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
-                + "   open_key     VARCHAR(225)  NOT NULL UNIQUE,"
-                + "   doctor_id    INT UNSIGNED  NOT NULL,"
+                + "  (id                INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
+                + "   open_key          VARCHAR(225)  NOT NULL UNIQUE,"
+                + "   doctor_id         INT UNSIGNED  NOT NULL,"
+                + "   first_part_key    LONGTEXT      NOT NULL,"
+                + "   servers_key       VARCHAR(10)   NOT NULL UNIQUE,"
+                + "   prime             VARCHAR(45)   NOT NULL UNIQUE,"
                 + "   FOREIGN KEY (doctor_id) REFERENCES users(id) ON DELETE CASCADE) CHARACTER SET = utf8 ";
 
         Statement stmt = connect.createStatement();
@@ -80,7 +83,7 @@ public class DatabaseHandler {
 
     private void userTriggerAfterInsert(String login) {
         String newUser = select(new ArrayList<>(Arrays.asList(new String[]{"users", "id", "role", "where", "login", login})));
-        if (newUser.split(separatorForSplit)[4].equals("Doctor")) {
+        if (!newUser.split(separatorForSplit)[4].equals("Patient")) {
             List<String> certificateToInsert = PKI.createKeysToUser(newUser.split(separatorForSplit)[3]);
             insert(certificateToInsert);
         }

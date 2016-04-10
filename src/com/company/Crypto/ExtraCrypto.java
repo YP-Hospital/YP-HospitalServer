@@ -1,5 +1,7 @@
 package com.company.Crypto;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -14,12 +16,9 @@ import java.security.NoSuchAlgorithmException;
 public class ExtraCrypto {
 
     public static String SYMMETRIC_ALGORITHM = "AES";
-    public static String HASH_ALGORITHM = "SHA-1";
-    static Key publicSymmetricKey;
-    private static String textField = "text";
-    public static String encryptedBySymmetric;
+    public static String HASH_ALGORITHM = "SHA1";
 
-    private static String getHexadecimalValue(byte[] result) {
+    public static String getHexadecimalValue(byte[] result) {
         StringBuffer buf = new StringBuffer();
         for (byte bytes : result) {
             buf.append(String.format("%02x", bytes & 0xff));
@@ -37,51 +36,67 @@ public class ExtraCrypto {
         return data;
     }
 
-    public static String textSymmetricKeyDecrypt(){
+    public static String textSymmetricKeyDecrypt(String toDecrypt, String key){
         String recovered = null;
         try {
+            Key publicSymmetricKey = getKey(key);
             Cipher cipher = Cipher.getInstance(SYMMETRIC_ALGORITHM);
             cipher.init(Cipher.DECRYPT_MODE, publicSymmetricKey);
-            byte[] recoveredBytes = cipher.doFinal(hexStringToByteArray(encryptedBySymmetric));
+            byte[] recoveredBytes = cipher.doFinal(hexStringToByteArray(toDecrypt));
             recovered = new String(recoveredBytes);
             System.out.println(recovered);
         } catch (NoSuchAlgorithmException e) {
+            System.out.println("NoSuchAlgorithmException");
             e.printStackTrace();
         } catch (NoSuchPaddingException e) {
+            System.out.println("NoSuchPaddingException");
             e.printStackTrace();
         } catch (InvalidKeyException e) {
+            System.out.println("InvalidKeyException");
             e.printStackTrace();
         } catch (IllegalBlockSizeException e) {
+            System.out.println("IllegalBlockSizeException");
             e.printStackTrace();
         } catch (BadPaddingException e) {
-            e.printStackTrace();
+//            System.out.println("BadPaddingException");
+//            e.printStackTrace();
+            System.out.println("Wrong key!");
+            return null;
         }
         return  recovered;
     }
 
-    public static void textSymmetricKeyEncrypt(String t) {
+    public static String  textSymmetricKeyEncrypt(String toEncrypt, String key) {
+        String result = "";
         try {
-            publicSymmetricKey = new SecretKeySpec(t.getBytes(), 0, 16, SYMMETRIC_ALGORITHM);
+            Key publicSymmetricKey = getKey(key);
             //publicSymmetricKey = KeyGenerator.getInstance(SYMMETRIC_ALGORITHM).generateKey();
             Cipher cipher = Cipher.getInstance(SYMMETRIC_ALGORITHM);
             byte[] encryptionBytes = null;
-            System.out.println("Entered: " + textField);
+            System.out.println("Entered: " + toEncrypt);
             cipher.init(Cipher.ENCRYPT_MODE, publicSymmetricKey);
-            byte[] inputBytes = textField.getBytes();
+            byte[] inputBytes = toEncrypt.getBytes();
             encryptionBytes = cipher.doFinal(inputBytes);
-            encryptedBySymmetric = getHexadecimalValue(encryptionBytes);
-            System.out.println(encryptedBySymmetric);
+            result = getHexadecimalValue(encryptionBytes);
+            System.out.println(result);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return result;
     }
 
-    public static String textToHash(BigInteger textField) {
+    @NotNull
+    private static Key getKey(String key) {
+        key = textToHash(key);
+        return new SecretKeySpec(key.getBytes(), 0, 16, SYMMETRIC_ALGORITHM);
+    }
+
+    public static String textToHash(String toHash) {
         String hashText = null;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(HASH_ALGORITHM);
             messageDigest.reset();
-            messageDigest.update(textField.toByteArray());
+            messageDigest.update(toHash.getBytes());
 
             byte result[] = messageDigest.digest();
             hashText = getHexadecimalValue(result);

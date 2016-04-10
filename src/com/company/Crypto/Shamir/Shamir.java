@@ -1,48 +1,21 @@
-package com.company.Crypto;
+package com.company.Crypto.Shamir;
 
-import javax.crypto.*;
-import javax.crypto.spec.SecretKeySpec;
 import java.math.BigInteger;
-import java.security.*;
 import java.util.Random;
 
 public final class Shamir {
 
-
-    public final class SecretShare {
-        public SecretShare(final int num, final BigInteger share) {
-            this.num = num;
-            this.share = share;
-        }
-
-        public int getNum() {
-            return num;
-        }
-
-        public BigInteger getShare() {
-            return share;
-        }
-
-        @Override
-        public String toString() {
-            return "SecretShare [num=" + num + ", share=" + share + "]";
-        }
-
-        private final int num;
-        private final BigInteger share;
-    }
-
     private BigInteger prime;
 
-    private final int k;
-    private final int n;
+    private final int neededKeys;
+    private final int allKeys;
     private final Random random;
 
     private static final int CERTAINTY = 50;
 
-    public Shamir(final int k, final int n) {
-        this.k = k;
-        this.n = n;
+    public Shamir(final int neededKeys, final int allKeys) {
+        this.neededKeys = neededKeys;
+        this.allKeys = allKeys;
 
         random = new Random();
     }
@@ -51,22 +24,19 @@ public final class Shamir {
         final int modLength = secret.bitLength() + 1;
 
         prime = new BigInteger(modLength, CERTAINTY, random);
-        final BigInteger[] coeff = new BigInteger[k - 1];
+        final BigInteger[] coeff = new BigInteger[neededKeys - 1];
 
         System.out.println("Prime Number: " + prime);
 
-        for (int i = 0; i < k - 1; i++) {
+        for (int i = 0; i < neededKeys - 1; i++) {
             coeff[i] = randomZp(prime);
-            System.out.println("a" + (i + 1) + ": " + coeff[i]);
-            String s = PKI.getStringFromBytes(coeff[i].toByteArray());
-            System.out.println(s + "    Sleeeep!");
         }
 
-        final SecretShare[] shares = new SecretShare[n];
-        for (int i = 1; i <= n; i++) {
+        final SecretShare[] shares = new SecretShare[allKeys];
+        for (int i = 1; i <= allKeys; i++) {
             BigInteger accum = secret;
 
-            for (int j = 1; j < k; j++) {
+            for (int j = 1; j < neededKeys; j++) {
                 final BigInteger t1 = BigInteger.valueOf(i).modPow(BigInteger.valueOf(j), prime);
                 final BigInteger t2 = coeff[j - 1].multiply(t1).mod(prime);
 
@@ -85,28 +55,21 @@ public final class Shamir {
 
     public BigInteger combine(final SecretShare[] shares, final BigInteger primeNum) {
         BigInteger accum = BigInteger.ZERO;
-        for (int i = 0; i < k; i++) {
+        for (int i = 0; i < neededKeys; i++) {
             BigInteger num = BigInteger.ONE;
             BigInteger den = BigInteger.ONE;
 
-            for (int j = 0; j < k; j++) {
+            for (int j = 0; j < neededKeys; j++) {
                 if (i != j) {
                     num = num.multiply(BigInteger.valueOf(-j - 1)).mod(primeNum);
                     den = den.multiply(BigInteger.valueOf(i - j)).mod(primeNum);
                 }
             }
-
-            System.out.println("den: " + den + ", num: " + den + ", inv: " + den.modInverse(primeNum));
             final BigInteger value = shares[i].getShare();
 
             final BigInteger tmp = value.multiply(num).multiply(den.modInverse(primeNum)).mod(primeNum);
             accum = accum.add(primeNum).add(tmp).mod(primeNum);
-
-            System.out.println("value: " + value + ", tmp: " + tmp + ", accum: " + accum);
         }
-
-        System.out.println("The secret is: " + accum);
-
         return accum;
     }
 
@@ -119,18 +82,20 @@ public final class Shamir {
         }
     }
 
-    public static void main(final String[] args) {
+    public static InfoToShamir getKeysByShamir(String text) {
         final Shamir shamir = new Shamir(2, 2);
-        byte[] b = PKI.getBytesFromString("218-161");
-        final BigInteger secret = new BigInteger(b);
+        final BigInteger secret = new BigInteger(text.getBytes());
+        System.out.println(secret);
         final SecretShare[] shares = shamir.split(secret);
         final BigInteger prime = shamir.getPrime();
-
-        final Shamir shamir2 = new Shamir(2, 2);
-//        textSymmetricKeyEncrypt(textToHash(shares[0].getShare()));
-//        textSymmetricKeyDecrypt();
-        final BigInteger result = shamir2.combine(shares, prime);
-        String s = PKI.getStringFromBytes(result.toByteArray());
-        System.out.println(s);
+        return new InfoToShamir(shares, prime);
     }
+
+    public static String getSecretBack(InfoToShamir info) {
+        final Shamir shamir2 = new Shamir(2, 2);
+        final BigInteger result = shamir2.combine(info.getShares(), info.getPrime());
+        System.out.println(new String(result.toByteArray()));
+        return  new String(result.toByteArray());
+    }
+
 }
