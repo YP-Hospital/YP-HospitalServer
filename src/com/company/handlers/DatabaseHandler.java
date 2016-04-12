@@ -33,6 +33,7 @@ public class DatabaseHandler {
         createUsersTable();
         createDiseaseHistoryTable();
         createCertificateTable();
+        createSignatureTable();
     }
 
     private void createUsersTable() throws SQLException {
@@ -81,6 +82,15 @@ public class DatabaseHandler {
         stmt.execute(sqlCreate);
     }
 
+    private void createSignatureTable() throws SQLException {
+        String sqlCreate = "CREATE TABLE IF NOT EXISTS signatures  "
+                + "  (id                INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
+                + "   signature         VARCHAR(500)  NOT NULL UNIQUE) CHARACTER SET = utf8 ";
+        Statement stmt = connect.createStatement();
+        stmt.execute(sqlCreate);
+        insert(new ArrayList<>(Arrays.asList(new String[]{"signatures", "empty"})));
+    }
+
     private void userTriggerAfterInsert(String login) {
         String newUser = select(new ArrayList<>(Arrays.asList(new String[]{"users", "id", "role", "where", "login", login})));
         if (!newUser.split(separatorForSplit)[4].equals("Patient")) {
@@ -102,6 +112,18 @@ public class DatabaseHandler {
             values.add(values.size() - 1, signature);
         }
         return true;
+    }
+
+    private boolean certificateTriggerBeforeUpdateOrDelete(List<String> values) {
+        String key = values.get(values.size() - 1);
+        return PKI.isAdminKey(key);
+    }
+
+    private void certificateTriggerAfterUpdateOrInsert(String key) {
+        String text = select(new ArrayList<>(Arrays.asList(new String[]{"certificates", "id", " open_key", "doctor_id",
+                                                          "first_part_key", "servers_key", "prime"})));
+        String signature = PKI.getNewSignature(key, text);
+        update(new ArrayList<>(Arrays.asList(new String[]{"signatures", "signature", signature, "where", "id", "1"})));
     }
 
     private String getSignature(List<String> value) {
@@ -146,11 +168,18 @@ public class DatabaseHandler {
     }
 
     public Boolean delete(List<String> dataFromClient) {
+        if (dataFromClient.get(tableNameIndex).equals("certificates")) {
+            if (!certificateTriggerBeforeUpdateOrDelete(dataFromClient)) {
+                return false;
+            }
+            dataFromClient.remove(dataFromClient.size() - 1);
+        }
         String statement = getDeleteQueryStatement(dataFromClient);
         return  workWithPreparedStatement(statement, dataFromClient);
     }
 
     public Boolean update(List<String> dataFromClient) {
+        String key = "";
         int k = 0;
         int n = dataFromClient.size()/2;
         List<String> forStatement = new ArrayList<>(dataFromClient.subList(0, n));
@@ -160,8 +189,18 @@ public class DatabaseHandler {
             if (diseaseTriggerBeforeInsertOrUpdate(values)) {
                 values.remove(values.size() - 1);
             } else return false;
+        } else if (dataFromClient.get(tableNameIndex).equals("certificates")) {
+            if (!certificateTriggerBeforeUpdateOrDelete(values)) {
+                return false;
+            }
+            key = values.get(values.size() - 1);
+            values.remove(values.size() - 1);
         }
-        return workWithPreparedStatement(statement, values);
+        Boolean isSuccess = workWithPreparedStatement(statement, values);
+        if (dataFromClient.get(tableNameIndex).equals("certificates")) {
+            certificateTriggerAfterUpdateOrInsert(key);
+        }
+        return isSuccess;
     }
 
     @NotNull

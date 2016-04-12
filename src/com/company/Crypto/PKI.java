@@ -211,6 +211,19 @@ public class PKI {
         return null;
     }
 
+    public static Boolean isAdminKey(String key) {
+        String privateKey = restorePrivateKey(key);
+        if (privateKey == null) {
+            return false;
+        }
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        String certificate = databaseHandler.select(new ArrayList<>(Arrays.asList(new String[]{"certificates", "doctor_id",
+                "where", "prime", info.getPrime().toString()})));
+        String userRole = databaseHandler.select(new ArrayList<>(Arrays.asList(new String[]{"users", "role",
+                                                "where", "id", certificate.split(DatabaseHandler.separatorForSplit)[1]})));
+        return userRole.split(DatabaseHandler.separatorForSplit)[1].equals("Admin");
+    }
+
     @NotNull
     private static List<String> getCertificateToInsert(String userId, PKI pki) {
         List<String> certificateToInsert = new ArrayList<>();
