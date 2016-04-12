@@ -88,7 +88,10 @@ public class DatabaseHandler {
                 + "   signature         VARCHAR(500)  NOT NULL UNIQUE) CHARACTER SET = utf8 ";
         Statement stmt = connect.createStatement();
         stmt.execute(sqlCreate);
-        insert(new ArrayList<>(Arrays.asList(new String[]{"signatures", "empty"})));
+        if (select(new ArrayList<>(Arrays.asList(new String[]{"signatures", "id", "where", "id",
+                "1"}))).equals("false")) {
+            insert(new ArrayList<>(Arrays.asList(new String[]{"signatures", "empty"})));
+        }
     }
 
     private void userTriggerAfterInsert(String login) {
@@ -116,13 +119,20 @@ public class DatabaseHandler {
 
     private boolean certificateTriggerBeforeUpdateOrDelete(List<String> values) {
         String key = values.get(values.size() - 1);
-        return PKI.isAdminKey(key);
+        String certificates = select(getCertificatesQuery());
+        String prime = PKI.getKeysPrime(key, certificates);
+        String certificate = select(new ArrayList<>(Arrays.asList(new String[]{"certificates", "doctor_id",
+                "where", "prime", prime})));
+        String userRole = select(new ArrayList<>(Arrays.asList(new String[]{"users", "role",
+                "where", "id", certificate.split(DatabaseHandler.separatorForSplit)[1]})));
+        return userRole.split(DatabaseHandler.separatorForSplit)[1].equals("Admin");
     }
 
     private void certificateTriggerAfterUpdateOrInsert(String key) {
-        String text = select(new ArrayList<>(Arrays.asList(new String[]{"certificates", "id", " open_key", "doctor_id",
+        String text = select(new ArrayList<>(Arrays.asList(new String[]{"certificates", "id", "open_key", "doctor_id",
                                                           "first_part_key", "servers_key", "prime"})));
-        String signature = PKI.getNewSignature(key, text);
+        String certificates = select(getCertificatesQuery());
+        String signature = PKI.getNewSignature(key, text, certificates);
         update(new ArrayList<>(Arrays.asList(new String[]{"signatures", "signature", signature, "where", "id", "1"})));
     }
 
@@ -132,7 +142,13 @@ public class DatabaseHandler {
         for (int i = 1; i < n; i++) {
             mainData += value.get(i) + " ";
         }
-        return PKI.getNewSignature(value.get(value.size() - 1), mainData);
+        String certificates = select(getCertificatesQuery());
+        return PKI.getNewSignature(value.get(value.size() - 1), mainData, certificates);
+    }
+
+    private List<String> getCertificatesQuery() {
+        return new ArrayList<>(Arrays.asList(new String[]{"certificates", "first_part_key",
+                "servers_key", "prime"}));
     }
 
     public String select(List<String> dataFromClient) {

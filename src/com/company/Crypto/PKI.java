@@ -174,11 +174,11 @@ public class PKI {
         return result;
     }
 
-    public static String getNewSignature(String key, String text) {
+    public static String getNewSignature(String key, String text, String certificates) {
         if (key.equals("null")) {
             return "false";
         }
-        String privateKey = restorePrivateKey(key);
+        String privateKey = restorePrivateKey(key, certificates);
         if (privateKey == null) {
             return "false";
         }
@@ -192,11 +192,8 @@ public class PKI {
         }
     }
 
-    private static String restorePrivateKey(String key) {
+    private static String restorePrivateKey(String key, String certificates) {
         String privateKey = "";
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-        String certificates = databaseHandler.select(new ArrayList<>(Arrays.asList(new String[]{"certificates", "first_part_key",
-                                                                          "servers_key", "prime"})));
         System.out.println(certificates);
         List<String> certificatesData = new ArrayList<>(Arrays.asList(certificates.split(DatabaseHandler.separatorForSplit)));
         for (int i = 4; i < certificatesData.size(); i+=4) {
@@ -211,17 +208,12 @@ public class PKI {
         return null;
     }
 
-    public static Boolean isAdminKey(String key) {
-        String privateKey = restorePrivateKey(key);
+    public static String getKeysPrime(String key, String certificates) {
+        String privateKey = restorePrivateKey(key, certificates);
         if (privateKey == null) {
-            return false;
+            return "false";
         }
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-        String certificate = databaseHandler.select(new ArrayList<>(Arrays.asList(new String[]{"certificates", "doctor_id",
-                "where", "prime", info.getPrime().toString()})));
-        String userRole = databaseHandler.select(new ArrayList<>(Arrays.asList(new String[]{"users", "role",
-                                                "where", "id", certificate.split(DatabaseHandler.separatorForSplit)[1]})));
-        return userRole.split(DatabaseHandler.separatorForSplit)[1].equals("Admin");
+        return info.getPrime().toString();
     }
 
     @NotNull

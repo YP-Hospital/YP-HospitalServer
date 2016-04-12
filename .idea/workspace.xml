@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e533dc8-599b-4a21-a331-ecdc023f4b44" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Crypto/PKI.java" afterPath="$PROJECT_DIR$/src/com/company/Crypto/PKI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" afterPath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
@@ -40,23 +41,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DatabaseHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatabaseHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="116" column="20" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
+            <state relative-caret-position="714">
+              <caret line="121" column="57" selection-start-line="121" selection-start-column="57" selection-end-line="121" selection-end-column="57" />
               <folding>
                 <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#createSignatureTable#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#certificateTriggerAfterUpdateOrInsert#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
@@ -73,11 +70,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PKI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TCPServer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding>
+                <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+                <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
+                <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PKI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/PKI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="201" column="47" selection-start-line="201" selection-start-column="47" selection-end-line="201" selection-end-column="47" />
+            <state relative-caret-position="693">
+              <caret line="215" column="42" selection-start-line="215" selection-start-column="42" selection-end-line="215" selection-end-column="42" />
               <folding>
                 <element signature="method#generateKeys#0;class#PKI#0" expanded="false" />
                 <element signature="method#getPrivateKey#0;class#PKI#0" expanded="false" />
@@ -92,7 +111,6 @@
                 <element signature="method#createKeysToUser#0;class#PKI#0" expanded="false" />
                 <element signature="method#generateShorterKey#0;class#PKI#0" expanded="false" />
                 <element signature="method#encryptFirstPartOfKey#0;class#PKI#0" expanded="false" />
-                <element signature="method#getNewSignature#0;class#PKI#0" expanded="false" />
                 <element signature="method#getCertificateToInsert#0;class#PKI#0" expanded="false" />
               </folding>
             </state>
@@ -148,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/com/company/handlers/Shamir.java" />
         <option value="$PROJECT_DIR$/src/com/company/Crypto/PKIHandler.java" />
         <option value="$PROJECT_DIR$/src/com/company/Crypto/MyShamir.java" />
-        <option value="$PROJECT_DIR$/src/com/company/TCPServer.java" />
         <option value="$PROJECT_DIR$/src/com/company/Crypto/infotoshamir.java" />
         <option value="$PROJECT_DIR$/src/com/company/Crypto/InfoToShamir.java" />
         <option value="$PROJECT_DIR$/src/com/company/Crypto/Shamir.java" />
@@ -156,6 +173,7 @@
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java" />
         <option value="$PROJECT_DIR$/src/com/company/Crypto/Shamir/Shamir.java" />
+        <option value="$PROJECT_DIR$/src/com/company/TCPServer.java" />
         <option value="$PROJECT_DIR$/src/com/company/Crypto/PKI.java" />
         <option value="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
       </list>
@@ -381,6 +399,7 @@
     <panes>
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -477,7 +496,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -493,23 +511,23 @@
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.company.Crypto.InfoToShamir" />
+      <recent name="com.company.Crypto" />
+      <recent name="com.company.Crypto.Shamir.InfoToShamir" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.company.Crypto" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/com/company" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/com/company" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/com/company/helpingClasses" />
       <recent name="$PROJECT_DIR$/src/res" />
       <recent name="$PROJECT_DIR$/src" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.company.Crypto" />
-    </key>
-    <key name="MoveMembersDialog.RECENTS_KEY">
-      <recent name="com.company.Crypto.InfoToShamir" />
-      <recent name="com.company.Crypto" />
-      <recent name="com.company.Crypto.Shamir.InfoToShamir" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/com/company" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -1068,17 +1086,15 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35930735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31875" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19349681" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1086,8 +1102,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35930735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1103,7 +1121,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="version 3.0" />
     <MESSAGE value="version 4.0" />
     <MESSAGE value="version 4.1 (createTable method, but only skillet)" />
     <MESSAGE value="version 4.2 (Select is ready)" />
@@ -1128,14 +1145,15 @@
     <MESSAGE value="Refactor done" />
     <MESSAGE value="diseaseTrigger fixed" />
     <MESSAGE value="delete fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete fixed" />
+    <MESSAGE value="signature fo certificates" />
+    <option name="LAST_COMMIT_MESSAGE" value="signature fo certificates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
-          <line>241</line>
+          <line>257</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
@@ -1152,19 +1170,13 @@
           <option name="timeStamp" value="161" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Crypto/PKI.java</url>
-          <line>199</line>
-          <properties />
-          <option name="timeStamp" value="168" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java</url>
           <line>41</line>
           <properties />
           <option name="timeStamp" value="169" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="171" />
+      <option name="time" value="172" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1188,12 +1200,8 @@
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createSignatureTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#certificateTriggerAfterUpdateOrInsert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
@@ -1220,7 +1228,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,12 +1261,8 @@
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createSignatureTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#certificateTriggerAfterUpdateOrInsert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
@@ -1279,7 +1282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1313,12 +1315,8 @@
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createSignatureTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#certificateTriggerAfterUpdateOrInsert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
@@ -1338,7 +1336,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1372,12 +1369,8 @@
             <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createSignatureTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#certificateTriggerAfterUpdateOrInsert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
@@ -1397,7 +1390,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1425,7 +1417,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1549,27 +1540,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
-            <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
-            <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1608,7 +1578,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1616,7 +1585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1628,10 +1596,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+            <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessage#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendAnswer#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#clientRequestHandling#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#sendToClientIsSelectSuccess#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#convertMessagesForDatabaseHandler#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#setConvertedDataFromClient#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getMessages#0;class#TCPServer#0" expanded="false" />
+            <element signature="method#getClient#0;class#TCPServer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="121" column="57" selection-start-line="121" selection-start-column="57" selection-end-line="121" selection-end-column="57" />
+          <folding>
+            <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/PKI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="201" column="47" selection-start-line="201" selection-start-column="47" selection-end-line="201" selection-end-column="47" />
+        <state relative-caret-position="693">
+          <caret line="215" column="42" selection-start-line="215" selection-start-column="42" selection-end-line="215" selection-end-column="42" />
           <folding>
             <element signature="method#generateKeys#0;class#PKI#0" expanded="false" />
             <element signature="method#getPrivateKey#0;class#PKI#0" expanded="false" />
@@ -1646,39 +1661,7 @@
             <element signature="method#createKeysToUser#0;class#PKI#0" expanded="false" />
             <element signature="method#generateShorterKey#0;class#PKI#0" expanded="false" />
             <element signature="method#encryptFirstPartOfKey#0;class#PKI#0" expanded="false" />
-            <element signature="method#getNewSignature#0;class#PKI#0" expanded="false" />
             <element signature="method#getCertificateToInsert#0;class#PKI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="116" column="20" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
-          <folding>
-            <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createUsersTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createDiseaseHistoryTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#createSignatureTable#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#certificateTriggerAfterUpdateOrInsert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
