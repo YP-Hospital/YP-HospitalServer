@@ -97,5 +97,4 @@ public final class Shamir {
         System.out.println(new String(result.toByteArray()));
         return  new String(result.toByteArray());
     }
-
 }

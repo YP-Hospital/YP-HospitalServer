@@ -85,11 +85,12 @@ public class DatabaseHandler {
     private void createSignatureTable() throws SQLException {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS signatures  "
                 + "  (id                INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
-                + "   signature         VARCHAR(500)  NOT NULL UNIQUE) CHARACTER SET = utf8 ";
+                + "   signature         LONGTEXT      NOT NULL) CHARACTER SET = utf8 ";
         Statement stmt = connect.createStatement();
         stmt.execute(sqlCreate);
-        if (select(new ArrayList<>(Arrays.asList(new String[]{"signatures", "id", "where", "id",
-                "1"}))).equals("false")) {
+        String tmp = select(new ArrayList<>(Arrays.asList(new String[]{"signatures", "id", "where", "id",
+                "1"})));
+        if (tmp.isEmpty()) {
             insert(new ArrayList<>(Arrays.asList(new String[]{"signatures", "empty"})));
         }
     }
@@ -121,11 +122,14 @@ public class DatabaseHandler {
         String key = values.get(values.size() - 1);
         String certificates = select(getCertificatesQuery());
         String prime = PKI.getKeysPrime(key, certificates);
+        if (prime.equals("false")) {
+            return false;
+        }
         String certificate = select(new ArrayList<>(Arrays.asList(new String[]{"certificates", "doctor_id",
                 "where", "prime", prime})));
         String userRole = select(new ArrayList<>(Arrays.asList(new String[]{"users", "role",
-                "where", "id", certificate.split(DatabaseHandler.separatorForSplit)[1]})));
-        return userRole.split(DatabaseHandler.separatorForSplit)[1].equals("Admin");
+                "where", "id", certificate.split(DatabaseHandler.separatorForSplit)[2]})));
+        return userRole.split(DatabaseHandler.separatorForSplit)[2].equals("Admin");
     }
 
     private void certificateTriggerAfterUpdateOrInsert(String key) {
@@ -133,7 +137,7 @@ public class DatabaseHandler {
                                                           "first_part_key", "servers_key", "prime"})));
         String certificates = select(getCertificatesQuery());
         String signature = PKI.getNewSignature(key, text, certificates);
-        update(new ArrayList<>(Arrays.asList(new String[]{"signatures", "signature", signature, "where", "id", "1"})));
+        update(new ArrayList<>(Arrays.asList(new String[]{"signatures", "signature", signature, "1"})));
     }
 
     private String getSignature(List<String> value) {
@@ -184,14 +188,20 @@ public class DatabaseHandler {
     }
 
     public Boolean delete(List<String> dataFromClient) {
+        String key = "";
         if (dataFromClient.get(tableNameIndex).equals("certificates")) {
             if (!certificateTriggerBeforeUpdateOrDelete(dataFromClient)) {
                 return false;
             }
+            key = dataFromClient.get(dataFromClient.size() - 1);
             dataFromClient.remove(dataFromClient.size() - 1);
         }
         String statement = getDeleteQueryStatement(dataFromClient);
-        return  workWithPreparedStatement(statement, dataFromClient);
+        Boolean isSuccess = workWithPreparedStatement(statement, dataFromClient);
+        if (dataFromClient.get(tableNameIndex).equals("certificates")) {
+            certificateTriggerAfterUpdateOrInsert(key);
+        }
+        return isSuccess;
     }
 
     public Boolean update(List<String> dataFromClient) {

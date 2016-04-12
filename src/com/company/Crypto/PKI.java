@@ -199,7 +199,7 @@ public class PKI {
         for (int i = 4; i < certificatesData.size(); i+=4) {
             privateKey += ExtraCrypto.textSymmetricKeyDecrypt(certificatesData.get(i), key);
             if (isEncrypted(privateKey)) {
-                InfoToShamir info = new InfoToShamir(new BigInteger(certificatesData.get(i+2)), certificatesData.get(i+1), key);
+                info = new InfoToShamir(new BigInteger(certificatesData.get(i+2)), certificatesData.get(i+1), key);
                 privateKey += Shamir.getSecretBack(info);
                 return privateKey;
             }

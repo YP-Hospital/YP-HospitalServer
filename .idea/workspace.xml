@@ -4,10 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e533dc8-599b-4a21-a331-ecdc023f4b44" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" />
+    <list default="true" id="8e533dc8-599b-4a21-a331-ecdc023f4b44" name="Default" comment="fixed something">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Crypto/PKI.java" afterPath="$PROJECT_DIR$/src/com/company/Crypto/PKI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Crypto/Shamir/Shamir.java" afterPath="$PROJECT_DIR$/src/com/company/Crypto/Shamir/Shamir.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" afterPath="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
     </list>
     <ignored path="Server.iws" />
@@ -44,8 +44,8 @@
       <file leaf-file-name="DatabaseHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="121" column="57" selection-start-line="121" selection-start-column="57" selection-end-line="121" selection-end-column="57" />
+            <state relative-caret-position="186">
+              <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
               <folding>
                 <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
@@ -54,17 +54,20 @@
                 <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#getCertificatesQuery#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
-                <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
                 <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
+                <marker date="1460460992493" expanded="false" signature="1393:1974" placeholder="CREATE TABLE... IF" />
+                <marker date="1460460992493" expanded="false" signature="2166:2963" placeholder="CREATE TABLE... IF" />
+                <marker date="1460460992493" expanded="false" signature="3152:3746" placeholder="CREATE TABLE... IF" />
+                <marker date="1460460992493" expanded="true" signature="3933:4157" placeholder="CREATE TABLE... IF" />
               </folding>
             </state>
           </provider>
@@ -73,8 +76,8 @@
       <file leaf-file-name="TCPServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="199">
+              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
               <folding>
                 <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
                 <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
@@ -92,14 +95,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PKI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PKI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/PKI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="215" column="42" selection-start-line="215" selection-start-column="42" selection-end-line="215" selection-end-column="42" />
+            <state relative-caret-position="204">
+              <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
               <folding>
                 <element signature="method#generateKeys#0;class#PKI#0" expanded="false" />
-                <element signature="method#getPrivateKey#0;class#PKI#0" expanded="false" />
                 <element signature="method#getPublicKey#0;class#PKI#0" expanded="false" />
                 <element signature="method#sign#0;class#PKI#0" expanded="false" />
                 <element signature="method#verifySignature#0;class#PKI#0" expanded="false" />
@@ -109,10 +111,55 @@
                 <element signature="method#getStringFromBytes#0;class#PKI#0" expanded="false" />
                 <element signature="method#getBytesFromString#0;class#PKI#0" expanded="false" />
                 <element signature="method#createKeysToUser#0;class#PKI#0" expanded="false" />
-                <element signature="method#generateShorterKey#0;class#PKI#0" expanded="false" />
                 <element signature="method#encryptFirstPartOfKey#0;class#PKI#0" expanded="false" />
                 <element signature="method#getCertificateToInsert#0;class#PKI#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExtraCrypto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-718">
+              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding>
+                <element signature="method#getHexadecimalValue#0;class#ExtraCrypto#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shamir.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/Shamir/Shamir.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="471">
+              <caret line="98" column="5" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+              <folding>
+                <element signature="method#Shamir#0;class#Shamir#0" expanded="false" />
+                <element signature="method#combine#0;class#Shamir#0" expanded="false" />
+                <element signature="method#randomZp#0;class#Shamir#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SecretShare.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/Shamir/SecretShare.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -171,11 +218,11 @@
         <option value="$PROJECT_DIR$/src/com/company/Crypto/Shamir.java" />
         <option value="$PROJECT_DIR$/src/com/company/Crypto/SecretShare.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Crypto/Shamir/Shamir.java" />
         <option value="$PROJECT_DIR$/src/com/company/TCPServer.java" />
         <option value="$PROJECT_DIR$/src/com/company/Crypto/PKI.java" />
         <option value="$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Crypto/Shamir/Shamir.java" />
       </list>
     </option>
   </component>
@@ -192,10 +239,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -398,33 +445,31 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="YP-HospitalServer" />
+              <option name="myItemId" value="Server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="YP-HospitalServer" />
+              <option name="myItemId" value="Server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="YP-HospitalServer" />
+              <option name="myItemId" value="Server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="YP-HospitalServer" />
+              <option name="myItemId" value="Server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="YP-HospitalServer" />
+              <option name="myItemId" value="Server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -434,29 +479,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="YP-HospitalServer" />
+              <option name="myItemId" value="Server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="YP-HospitalServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="company" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YP-HospitalServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YP-HospitalServer" />
+              <option name="myItemId" value="Server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -467,18 +494,14 @@
               <option name="myItemId" value="company" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="YP-HospitalServer" />
+              <option name="myItemId" value="Server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="YP-HospitalServer" />
+              <option name="myItemId" value="Server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -494,8 +517,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="company" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Crypto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Shamir" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -507,7 +558,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../YP-Hospital/app/build.gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../2lab" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
@@ -640,6 +691,133 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -654,6 +832,14 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -719,6 +905,9 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -744,6 +933,84 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="executeSpecs" factoryName="Gauge Execution">
+      <setting name="environment" value="" />
+      <setting name="specsToExecute" value="" />
+      <setting name="tags" value="" />
+      <setting name="parallelNodes" value="" />
+      <setting name="execInParallel" value="false" />
+      <setting name="programParameters" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="moduleName" value="" />
+      <envMap />
+      <setting name="rowsRange" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -760,6 +1027,25 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
     <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.Shamir" />
@@ -767,8 +1053,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Shamir" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Shamir" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
         <item index="2" class="java.lang.String" itemvalue="Application.MyShamir" />
       </list>
     </recent_temporary>
@@ -845,6 +1131,7 @@
       <workItem from="1459710405312" duration="6249000" />
       <workItem from="1459758548856" duration="29271000" />
       <workItem from="1460208357540" duration="13600000" />
+      <workItem from="1460457030080" duration="8729000" />
     </task>
     <task id="LOCAL-00001" summary="version 1.0">
       <created>1457793700759</created>
@@ -1074,38 +1361,38 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217396000" />
+    <option name="totallyTimeSpent" value="226125000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31875" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.346875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31875" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21393035" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38541666" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35930735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1153,30 +1440,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
-          <line>257</line>
+          <line>267</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Crypto/PKI.java</url>
-          <line>53</line>
+          <url>file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java</url>
+          <line>305</line>
           <properties />
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Crypto/PKI.java</url>
-          <line>163</line>
-          <properties />
-          <option name="timeStamp" value="161" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java</url>
-          <line>41</line>
-          <properties />
-          <option name="timeStamp" value="169" />
+          <option name="timeStamp" value="192" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="172" />
+      <option name="time" value="202" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1202,17 +1477,20 @@
             <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getCertificatesQuery#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
+            <marker date="1460460992493" expanded="false" signature="1393:1974" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="false" signature="2166:2963" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="false" signature="3152:3746" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="true" signature="3933:4157" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1263,17 +1541,20 @@
             <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getCertificatesQuery#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
+            <marker date="1460460992493" expanded="false" signature="1393:1974" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="false" signature="2166:2963" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="false" signature="3152:3746" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="true" signature="3933:4157" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1317,17 +1598,20 @@
             <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getCertificatesQuery#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
+            <marker date="1460460992493" expanded="false" signature="1393:1974" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="false" signature="2166:2963" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="false" signature="3152:3746" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="true" signature="3933:4157" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1371,17 +1655,20 @@
             <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getCertificatesQuery#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
+            <marker date="1460460992493" expanded="false" signature="1393:1974" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="false" signature="2166:2963" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="false" signature="3152:3746" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="true" signature="3933:4157" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -1536,28 +1823,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/infotoshamir.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="62" column="39" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#getHexadecimalValue#0;class#ExtraCrypto#0" expanded="false" />
-            <element signature="method#hexStringToByteArray#0;class#ExtraCrypto#0" expanded="false" />
-            <element signature="method#textSymmetricKeyEncrypt#0;class#ExtraCrypto#0" expanded="false" />
-            <element signature="method#getKey#0;class#ExtraCrypto#0" expanded="false" />
-            <element signature="method#textToHash#0;class#ExtraCrypto#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/Shamir/InfoToShamir.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1566,40 +1831,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/Shamir/SecretShare.java">
+    <entry file="file://$PROJECT_DIR$/../YP-Hospital/build.gradle" />
+    <entry file="file://$PROJECT_DIR$/../YP-Hospital/app/build.gradle" />
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../YP-Hospital/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../YP-Hospital/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/Shamir/Shamir.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        <state relative-caret-position="108">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/TCPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="199">
+          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding>
             <element signature="method#setMessageFromAnotherClass#0;class#TCPServer#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#TCPServer#0" expanded="false" />
@@ -1618,8 +1863,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/handlers/DatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="121" column="57" selection-start-line="121" selection-start-column="57" selection-end-line="121" selection-end-column="57" />
+        <state relative-caret-position="186">
+          <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
           <folding>
             <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#createTables#0;class#DatabaseHandler#0" expanded="false" />
@@ -1628,28 +1873,30 @@
             <element signature="method#createCertificateTable#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userTriggerAfterInsert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#diseaseTriggerBeforeInsertOrUpdate#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#select#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#certificateTriggerBeforeUpdateOrDelete#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getSignature#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getCertificatesQuery#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#delete#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#update#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#workWithPreparedStatement#0;class#DatabaseHandler#0" expanded="false" />
-            <element signature="method#getUpdateQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getSelectQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getInsertQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#getDeleteQueryStatement#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#userResultSetToString#0;class#DatabaseHandler#0" expanded="false" />
             <element signature="method#close#0;class#DatabaseHandler#0" expanded="false" />
+            <marker date="1460460992493" expanded="false" signature="1393:1974" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="false" signature="2166:2963" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="false" signature="3152:3746" placeholder="CREATE TABLE... IF" />
+            <marker date="1460460992493" expanded="true" signature="3933:4157" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/PKI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="215" column="42" selection-start-line="215" selection-start-column="42" selection-end-line="215" selection-end-column="42" />
+        <state relative-caret-position="204">
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
           <folding>
             <element signature="method#generateKeys#0;class#PKI#0" expanded="false" />
-            <element signature="method#getPrivateKey#0;class#PKI#0" expanded="false" />
             <element signature="method#getPublicKey#0;class#PKI#0" expanded="false" />
             <element signature="method#sign#0;class#PKI#0" expanded="false" />
             <element signature="method#verifySignature#0;class#PKI#0" expanded="false" />
@@ -1659,9 +1906,38 @@
             <element signature="method#getStringFromBytes#0;class#PKI#0" expanded="false" />
             <element signature="method#getBytesFromString#0;class#PKI#0" expanded="false" />
             <element signature="method#createKeysToUser#0;class#PKI#0" expanded="false" />
-            <element signature="method#generateShorterKey#0;class#PKI#0" expanded="false" />
             <element signature="method#encryptFirstPartOfKey#0;class#PKI#0" expanded="false" />
             <element signature="method#getCertificateToInsert#0;class#PKI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/ExtraCrypto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-718">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding>
+            <element signature="method#getHexadecimalValue#0;class#ExtraCrypto#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/Shamir/SecretShare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Crypto/Shamir/Shamir.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="98" column="5" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+          <folding>
+            <element signature="method#Shamir#0;class#Shamir#0" expanded="false" />
+            <element signature="method#combine#0;class#Shamir#0" expanded="false" />
+            <element signature="method#randomZp#0;class#Shamir#0" expanded="false" />
           </folding>
         </state>
       </provider>
