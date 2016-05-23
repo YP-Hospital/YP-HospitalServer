@@ -1,5 +1,6 @@
 package com.company.handlers;
 
+import com.company.Crypto.ExtraCrypto;
 import com.company.Crypto.PKI;
 import org.jetbrains.annotations.NotNull;
 
@@ -7,8 +8,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DatabaseHandler {
+    public final static String EMPTY = "empty";
     private int tableNameIndex = 0;
     private int startFieldsNames = 1;
     private String separator = "][";
@@ -85,25 +89,57 @@ public class DatabaseHandler {
     private void createSignatureTable() throws SQLException {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS signatures  "
                 + "  (id                INT UNSIGNED  NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,"
-                + "   signature         LONGTEXT      NOT NULL) CHARACTER SET = utf8 ";
+                + "   signature         LONGTEXT      NOT NULL,"
+                + "   symmetricKey      LONGTEXT      NOT NULL) CHARACTER SET = utf8 ";
         Statement stmt = connect.createStatement();
         stmt.execute(sqlCreate);
         String tmp = select(new ArrayList<>(Arrays.asList(new String[]{"signatures", "id", "where", "id",
                 "1"})));
         if (tmp.isEmpty()) {
-            insert(new ArrayList<>(Arrays.asList(new String[]{"signatures", "empty"})));
+            insert(new ArrayList<>(Arrays.asList(new String[]{"signatures", EMPTY, EMPTY})));
         }
+    }
+
+    public void updateFirstPartsKeys() {
+        String newKey = ExtraCrypto.generateNewSymmetricKey();
+        String oldKey = getKeyFromDB();
+        String text = select(new ArrayList<>(Arrays.asList(new String[]{"certificates", "id", "first_part_key"})));
+        if (!oldKey.equals(EMPTY) & !text.isEmpty()) {
+            String[] words =  text.split(separatorForSplit);
+            for (int i = 2; i < words.length; i+=3) {
+                String id = words[i+1];
+                String encryptedFirstPartKey = words[i+2];
+                String decryptFirstPartKey = ExtraCrypto.textSymmetricKeyDecrypt(encryptedFirstPartKey, oldKey);
+                encryptedFirstPartKey = ExtraCrypto.textSymmetricKeyEncrypt(decryptFirstPartKey, newKey);
+                update(new ArrayList<>(Arrays.asList(new String[]{"certificates", "first_part_key", encryptedFirstPartKey, id})));
+            }
+        }
+        updateSymmetricKeyInBD(newKey);
+    }
+
+
+    private String getKeyFromDB() {
+        String tmp = select(new ArrayList<>(Arrays.asList(new String[]{"signatures", "symmetricKey", "where", "id",
+                "1"})));
+        return tmp.split(separatorForSplit)[2];
+    }
+
+    private void updateSymmetricKeyInBD(String newKey) {
+        String tmp = select(new ArrayList<>(Arrays.asList(new String[]{"signatures", "id", "where", "id",
+                "1"})));
+        this.update(new ArrayList<>(Arrays.asList(new String[]{"signatures", "symmetricKey", newKey, "1"})));
     }
 
     private void userTriggerAfterInsert(String login) {
         String newUser = select(new ArrayList<>(Arrays.asList(new String[]{"users", "id", "role", "where", "login", login})));
+        String symmetricKey = getKeyFromDB();
         if (!newUser.split(separatorForSplit)[4].equals("Patient")) {
-            List<String> certificateToInsert = PKI.createKeysToUser(newUser.split(separatorForSplit)[3]);
+            List<String> certificateToInsert = PKI.createKeysToUser(newUser.split(separatorForSplit)[3], symmetricKey);
             insert(certificateToInsert);
         }
     }
 
-    private boolean diseaseTriggerBeforeInsertOrUpdate(List<String> values) {
+    private Boolean diseaseTriggerBeforeInsertOrUpdate(List<String> values) {
         String signature = getSignature(values);
         if (signature.equals("false")) {
             return false;
@@ -118,10 +154,10 @@ public class DatabaseHandler {
         return true;
     }
 
-    private boolean certificateTriggerBeforeUpdateOrDelete(List<String> values) {
+    private Boolean certificateTriggerBeforeUpdateOrDelete(List<String> values) {
         String key = values.get(values.size() - 1);
         String certificates = select(getCertificatesQuery());
-        String prime = PKI.getKeysPrime(key, certificates);
+        String prime = PKI.getKeysPrime(key, certificates, getKeyFromDB());
         if (prime.equals("false")) {
             return false;
         }
@@ -132,11 +168,11 @@ public class DatabaseHandler {
         return userRole.split(DatabaseHandler.separatorForSplit)[2].equals("Admin");
     }
 
-    private void certificateTriggerAfterUpdateOrInsert(String key) {
+    private void certificateTriggerAfterDeleteOrUpdateOrInsert(String key) {
         String text = select(new ArrayList<>(Arrays.asList(new String[]{"certificates", "id", "open_key", "doctor_id",
                                                           "first_part_key", "servers_key", "prime"})));
         String certificates = select(getCertificatesQuery());
-        String signature = PKI.getNewSignature(key, text, certificates);
+        String signature = PKI.getNewSignature(key, text, certificates, getKeyFromDB());
         update(new ArrayList<>(Arrays.asList(new String[]{"signatures", "signature", signature, "1"})));
     }
 
@@ -147,7 +183,7 @@ public class DatabaseHandler {
             mainData += value.get(i) + " ";
         }
         String certificates = select(getCertificatesQuery());
-        return PKI.getNewSignature(value.get(value.size() - 1), mainData, certificates);
+        return PKI.getNewSignature(value.get(value.size() - 1), mainData, certificates, getKeyFromDB());
     }
 
     private List<String> getCertificatesQuery() {
@@ -199,7 +235,7 @@ public class DatabaseHandler {
         String statement = getDeleteQueryStatement(dataFromClient);
         Boolean isSuccess = workWithPreparedStatement(statement, dataFromClient);
         if (dataFromClient.get(tableNameIndex).equals("certificates")) {
-            certificateTriggerAfterUpdateOrInsert(key);
+            certificateTriggerAfterDeleteOrUpdateOrInsert(key);
         }
         return isSuccess;
     }
@@ -215,17 +251,8 @@ public class DatabaseHandler {
             if (diseaseTriggerBeforeInsertOrUpdate(values)) {
                 values.remove(values.size() - 1);
             } else return false;
-        } else if (dataFromClient.get(tableNameIndex).equals("certificates")) {
-            if (!certificateTriggerBeforeUpdateOrDelete(values)) {
-                return false;
-            }
-            key = values.get(values.size() - 1);
-            values.remove(values.size() - 1);
         }
         Boolean isSuccess = workWithPreparedStatement(statement, values);
-        if (dataFromClient.get(tableNameIndex).equals("certificates")) {
-            certificateTriggerAfterUpdateOrInsert(key);
-        }
         return isSuccess;
     }
 

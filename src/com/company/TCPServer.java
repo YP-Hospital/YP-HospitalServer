@@ -7,6 +7,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class TCPServer extends Thread {
@@ -15,6 +17,7 @@ public class TCPServer extends Thread {
     public static final int SERVER_PORT = 8080;
     public static final String STOP_WORDS = "This is a stop message";
     private boolean running = false;
+    private boolean isNeedToUpdateKey = false;
     private DatabaseHandler databaseHandler;
     private DataOutputStream outputStream;
     private DataInputStream inputStream;
@@ -65,11 +68,18 @@ public class TCPServer extends Thread {
         super.run();
         running = true;
         databaseHandler = new DatabaseHandler();
+        databaseHandler.updateFirstPartsKeys();
         try {
             System.out.println("S: Connecting...");
             ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
             try {
                 while (running) {
+                    if (getCurrentTimeHours() % 2 == 0 && isNeedToUpdateKey) {
+                        isNeedToUpdateKey = false;
+                        databaseHandler.updateFirstPartsKeys();
+                    } else if (getCurrentTimeHours() % 2 == 1 && !isNeedToUpdateKey) {
+                        isNeedToUpdateKey =  true;
+                    }
                     clientRequestHandling(serverSocket);
                 }
             } catch (Exception e) {
@@ -80,6 +90,13 @@ public class TCPServer extends Thread {
             System.out.println("S: Error in serverSocket");
             e.printStackTrace();
         }
+    }
+
+    private int getCurrentTimeHours() {
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.HOUR_OF_DAY);
     }
 
     private void clientRequestHandling(ServerSocket serverSocket) throws IOException {

@@ -152,33 +152,35 @@ public class PKI {
         return bos.toByteArray();
     }
 
-    public static List<String> createKeysToUser(String userId) {
+    public static List<String> createKeysToUser(String userId, String symmetricKey) {
         PKI pki = new PKI();
         pki.generateKeys();
-        String shorteKey = generateShorterKey(getStringFromBytes(pki.privateKey.getEncoded()));
+        String shorteKey = generateShorterKey(getStringFromBytes(pki.privateKey.getEncoded()), symmetricKey);
         TCPServer.setMessageFromAnotherClass(shorteKey);
         return getCertificateToInsert(userId, pki);
     }
 
-    private static String generateShorterKey(String privateKey) {
+    private static String generateShorterKey(String privateKey, String symmetricKey) {
         String[] separatedKey = privateKey.split("-");
         String partToSeparateByShamir =  separatedKey[separatedKey.length-1];
         info = Shamir.getKeysByShamir(partToSeparateByShamir);
         partToInputIntoDB = privateKey.substring(0, privateKey.length() - partToSeparateByShamir.length());
-        partToInputIntoDB =  encryptFirstPartOfKey(partToInputIntoDB);
+        partToInputIntoDB =  encryptFirstPartOfKey(partToInputIntoDB, symmetricKey);
         return info.getShares()[1].getShare().toString();
     }
 
-    private static String encryptFirstPartOfKey(String partToInputIntoDB) {
-        String result = ExtraCrypto.textSymmetricKeyEncrypt(partToInputIntoDB, info.getShares()[1].getShare().toString());
+    private static String encryptFirstPartOfKey(String partToInputIntoDB, String key) {
+        String result = ExtraCrypto.textSymmetricKeyEncrypt(partToInputIntoDB, key);
         return result;
     }
 
-    public static String getNewSignature(String key, String text, String certificates) {
+
+
+    public static String getNewSignature(String key, String text, String certificates, String symmetricKey) {
         if (key.equals("null")) {
             return "false";
         }
-        String privateKey = restorePrivateKey(key, certificates);
+        String privateKey = restorePrivateKey(key, certificates, symmetricKey);
         if (privateKey == null) {
             return "false";
         }
@@ -192,12 +194,12 @@ public class PKI {
         }
     }
 
-    private static String restorePrivateKey(String key, String certificates) {
+    private static String restorePrivateKey(String key, String certificates, String symmetricKey) {
         String privateKey = "";
         System.out.println(certificates);
         List<String> certificatesData = new ArrayList<>(Arrays.asList(certificates.split(DatabaseHandler.separatorForSplit)));
         for (int i = 4; i < certificatesData.size(); i+=4) {
-            privateKey += ExtraCrypto.textSymmetricKeyDecrypt(certificatesData.get(i), key);
+            privateKey += ExtraCrypto.textSymmetricKeyDecrypt(certificatesData.get(i), symmetricKey);
             if (isEncrypted(privateKey)) {
                 info = new InfoToShamir(new BigInteger(certificatesData.get(i+2)), certificatesData.get(i+1), key);
                 privateKey += Shamir.getSecretBack(info);
@@ -208,8 +210,8 @@ public class PKI {
         return null;
     }
 
-    public static String getKeysPrime(String key, String certificates) {
-        String privateKey = restorePrivateKey(key, certificates);
+    public static String getKeysPrime(String key, String certificates, String symmetricKey) {
+        String privateKey = restorePrivateKey(key, certificates, symmetricKey);
         if (privateKey == null) {
             return "false";
         }

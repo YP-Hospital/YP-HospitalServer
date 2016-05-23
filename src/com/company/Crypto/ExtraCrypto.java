@@ -1,12 +1,16 @@
 package com.company.Crypto;
 
 import org.jetbrains.annotations.NotNull;
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -39,7 +43,9 @@ public class ExtraCrypto {
     public static String textSymmetricKeyDecrypt(String toDecrypt, String key){
         String recovered = null;
         try {
-            Key publicSymmetricKey = getKey(key);
+            BASE64Decoder decoder = new BASE64Decoder();
+            byte[] encodedKey = decoder.decodeBuffer(key);
+            Key publicSymmetricKey = new SecretKeySpec(encodedKey, 0, encodedKey.length, SYMMETRIC_ALGORITHM);
             Cipher cipher = Cipher.getInstance(SYMMETRIC_ALGORITHM);
             cipher.init(Cipher.DECRYPT_MODE, publicSymmetricKey);
             byte[] recoveredBytes = cipher.doFinal(hexStringToByteArray(toDecrypt));
@@ -62,15 +68,19 @@ public class ExtraCrypto {
 //            e.printStackTrace();
             System.out.println("Wrong key!");
             return null;
+        } catch (IOException e) {
+            System.out.println("IOException");
+            e.printStackTrace();
         }
         return  recovered;
     }
 
-    public static String  textSymmetricKeyEncrypt(String toEncrypt, String key) {
+    public static String textSymmetricKeyEncrypt(String toEncrypt, String key) {
         String result = "";
         try {
-            Key publicSymmetricKey = getKey(key);
-            //publicSymmetricKey = KeyGenerator.getInstance(SYMMETRIC_ALGORITHM).generateKey();
+            BASE64Decoder decoder = new BASE64Decoder();
+            byte[] encodedKey = decoder.decodeBuffer(key);
+            Key publicSymmetricKey = new SecretKeySpec(encodedKey, 0, encodedKey.length, SYMMETRIC_ALGORITHM);
             Cipher cipher = Cipher.getInstance(SYMMETRIC_ALGORITHM);
             byte[] encryptionBytes = null;
             System.out.println("Entered: " + toEncrypt);
@@ -85,10 +95,15 @@ public class ExtraCrypto {
         return result;
     }
 
-    @NotNull
-    private static Key getKey(String key) {
-        key = textToHash(key);
-        return new SecretKeySpec(key.getBytes(), 0, 16, SYMMETRIC_ALGORITHM);
+    public static String generateNewSymmetricKey() {
+        BASE64Encoder encoder = new BASE64Encoder();
+        Key key = null;
+        try {
+            key = KeyGenerator.getInstance(SYMMETRIC_ALGORITHM).generateKey();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return encoder.encode(key.getEncoded());
     }
 
     public static String textToHash(String toHash) {
