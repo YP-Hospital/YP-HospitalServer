@@ -8,8 +8,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class DatabaseHandler {
     public final static String EMPTY = "empty";
@@ -251,9 +249,18 @@ public class DatabaseHandler {
             if (diseaseTriggerBeforeInsertOrUpdate(values)) {
                 values.remove(values.size() - 1);
             } else return false;
+        } else if (dataFromClient.get(tableNameIndex).equals("users") && dataFromClient.get(tableNameIndex+1).equals("doctor_id")) {
+            if (!userUpdateDoctorTriggerBeforeUpdate(values)) {
+                return false;
+            }
         }
         Boolean isSuccess = workWithPreparedStatement(statement, values);
         return isSuccess;
+    }
+
+    private Boolean userUpdateDoctorTriggerBeforeUpdate(List<String> values) {
+        String patient = select(new ArrayList<>(Arrays.asList(new String[]{"users", "id", "doctor_id", "where", "id", values.get(values.size()-1)})));
+        return patient.split(separatorForSplit)[4].equals("0") || values.get(values.size()-2).equals("0");
     }
 
     @NotNull

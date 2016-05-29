@@ -95,6 +95,6 @@ public final class Shamir {
         final Shamir shamir2 = new Shamir(2, 2);
         final BigInteger result = shamir2.combine(info.getShares(), info.getPrime());
         System.out.println(new String(result.toByteArray()));
-        return  new String(result.toByteArray());
+        return new String(result.toByteArray());
     }
 }
