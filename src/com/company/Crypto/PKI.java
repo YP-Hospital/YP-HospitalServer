@@ -52,6 +52,9 @@ public class PKI {
         PrivateKey key = null;
         try {
             byte[] privateBytes = getBytesFromString(privateKey);
+            if (privateBytes == null) {
+                return null;
+            }
             PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(privateBytes);
             KeyFactory keyFactory = KeyFactory.getInstance(PKI_ALGORITHM);
             key = keyFactory.generatePrivate(keySpec);
@@ -143,13 +146,18 @@ public class PKI {
     }
 
     public static byte[] getBytesFromString(String str) {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        StringTokenizer st = new StringTokenizer(str, "-", false);
-        while (st.hasMoreTokens()) {
-            int i = Integer.parseInt(st.nextToken());
-            bos.write((byte) i);
+        try {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            StringTokenizer st = new StringTokenizer(str, "-", false);
+            while (st.hasMoreTokens()) {
+                int i = Integer.parseInt(st.nextToken());
+                bos.write((byte) i);
+            }
+            return bos.toByteArray();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
-        return bos.toByteArray();
+        return null;
     }
 
     public static List<String> createKeysToUser(String userId, String symmetricKey) {
